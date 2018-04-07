@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios'>
+    <pages>
+        <page name='study1'/>
+        <page name='study2'/>
+        <page name='study3'/>
+        <page name='study4'/>
+        <page name='study5'/>
+        <page name='study6'/>
+        <page name='study7'/>
+        <page name='study8'/>
+        <page name='study9'/>
+        <page name='study10'/>
+        <page name='study11'/>
+        <page name='study12'/>
+        <page name='study13'/>
+        <page name='study14'/>
+    </pages>
+</playground>
