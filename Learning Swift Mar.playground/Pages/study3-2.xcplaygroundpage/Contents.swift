@@ -32,3 +32,31 @@ let defaultRes = Resolution(width: 1024, height: 768)
 
 print("width:\(defaultRes.width), height: \(defaultRes.height)")
 
+let hd = Resolution(width: 1920, height: 1080)
+var cinema = hd
+cinema.width = 2048
+print("cinema instance의 width 값은 \(cinema.width)입니다.")
+print("hd instance의 width 값은 \(hd.width)입니다.")
+
+let video = VideoMode()
+video.name = "Original Video Instance"
+print("video 인스턴스 name 값은 \(video.name!)입니다.")
+
+let dvd = video
+dvd.name = "DVD Video Instance"
+print("video 인스턴스 name 값은 \(video.name!)입니다.")
+
+func changeName(v: VideoMode) {
+    v.name = "Function Video Instance"
+}
+
+changeName(v: video)
+print("video 인스턴스 name 값은 \(video.name!)입니다.")
+
+if (video === dvd) {
+    print("동일 VideoMode 인스턴스 참조")
+} else {
+    print("다른 인스턴스 참조")
+}
+
+
