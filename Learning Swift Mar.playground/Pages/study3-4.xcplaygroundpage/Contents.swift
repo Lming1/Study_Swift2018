@@ -34,6 +34,7 @@ class PropertyInit {
     }()
     
     // 프로퍼티 참조 시에 최초 한 번만 실행
+    // 네트워크 소켓 관련 개발시 주로 사용함
     lazy var value03: String! = {
         print("value03 execute")
         return "value03"
