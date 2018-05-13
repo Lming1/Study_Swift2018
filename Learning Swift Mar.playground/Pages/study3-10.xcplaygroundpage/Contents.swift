@@ -1,5 +1,5 @@
 import Foundation
-
+//final method = 오버라이딩 불가 
 class Vehicle {
     var currentSpeed = 0.0
     
@@ -73,6 +73,37 @@ c.description = "New Class Car"
 print(c.description)
 
 
+class AutomaticCar: Car {
+    override var currentSpeed: Double {
+        didSet {
+            self.gear = Int(currentSpeed / 10.0) + 1
+        }
+    }
+}
 
+class Bike: Vehicle {
+    override func makeNoise() {
+        print("kkkkkkkkkkkkk")
+    }
+}
+
+let bk = Bike()
+bk.makeNoise()
+
+
+class HybridCar: Car {
+    
+}
+
+class KickBoard: Vehicle{
+    
+}
+
+
+let h = HybridCar()
+h.description
+
+let k = KickBoard()
+k.description
 
 
