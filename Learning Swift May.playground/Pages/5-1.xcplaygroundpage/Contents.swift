@@ -4,7 +4,7 @@ import Foundation
 
 class Vehicle {
     var currentSpeed = 0.0
-    
+
     func accelerate() {
         self.currentSpeed += 1
     }
@@ -14,9 +14,9 @@ class Car: Vehicle {
     var gear: Int {
         return Int(self.currentSpeed / 20) + 1
     }
-    
+
     func wiper()  {
-        
+
     }
 }
 
@@ -113,5 +113,28 @@ value = [1, 3, 5, 7, 9]
 value = {
     print("함수 실행")
 }
+
+
+func name(_ param: Any) {
+    print("\(param)")
+}
+
+name(3)
+name(false)
+name([1, 3, 5, 7, 9])
+name {
+    print(">>>")
+}
+
+var rows = [Any]()
+// Any 사용 주의할 것. 스위프트에서 사용되는 정적인 타입들을 모두 동적인 타입으로 바꾼다.
+rows.append(3)
+rows.append(false)
+rows.append([1, 3, 5, 7, 9])
+rows.append {
+    print(">>>")
+}
+
+
 
 
