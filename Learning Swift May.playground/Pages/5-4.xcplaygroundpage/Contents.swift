@@ -95,3 +95,10 @@ enum ImageFormat {
 var newImage = ImageFormat.PNG(true)
 newImage = .GIF(256, false)
 
+
+
+//enum UIImagePickerControllerSourceType: Int {
+//    case photoLibrary
+//    case camera
+//    case savedPhotosAlbum
+//}
