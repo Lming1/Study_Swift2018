@@ -141,6 +141,7 @@ class CInit: SomeInitProtocol {
 
 protocol Init {
     init()
+    func getValue()
 }
 
 
@@ -148,13 +149,123 @@ class Parent {
     init() {
         
     }
+    
+    func getValue() {
+        
+    }
 }
 
-
+//부모 클래스가 있다면 무조건 부모 클래스부터.
 
 // 상속과 프로토콜 구현이 동시에.. 일어날 경우
 class Child: Parent, Init {
     override required init() {
         
     }
+    
+    override func getValue() {
+        
+    }
 }
+
+
+struct MultiImplement: NewMethodProtocol, SomeInitProtocol {
+    var cmd: String
+
+    init() {
+        self.cmd = "default"
+    }
+    
+    init(cmd: String) {
+        self.cmd = cmd
+    }
+    
+    mutating func execute(cmd: String, desc: String) {
+        self.cmd = cmd
+        if cmd == "start" {
+            print("시작")
+        }
+    }
+    
+    func showPort(p: Int, memo desc: String) -> String {
+        return "Port : \(p), Memo : \(desc)"
+    }
+}
+
+
+// 상수, 변수 그리고 프로퍼티 타입으로 사용할 수 있음
+// 함수, 메소드 또는 초기화 구문에서 매개변수 타입이나 반환 타입으로 사용할 수 있음.
+// 배열, 딕셔너리 혹은 다른 컨테이너 타입으로 사용할 수 있음.
+
+protocol Wheel {
+    func spin()
+    func hold()
+}
+
+
+class Bicycle: Wheel {
+    
+    var moveState = false
+    
+    func spin() {
+        self.pedal()
+    }
+    
+    func hold() {
+        self.pullBreak()
+    }
+    
+    func pedal() {
+        self.moveState = true
+    }
+    
+    func pullBreak() {
+        self.moveState = false
+    }
+    
+}
+
+
+let trans = Bicycle()
+
+trans.moveState
+trans.pedal()
+trans.pullBreak()
+trans.spin()
+trans.hold()
+
+
+let trans1: Wheel = Bicycle()
+
+trans1.hold()
+trans1.spin()
+
+
+protocol A {
+    func doA()
+}
+
+protocol B {
+    func doB()
+}
+
+
+class Impl: A, B {
+    func doA() {
+        
+    }
+    
+    func doB() {
+        
+    }
+    
+    func desc() -> String {
+        return "Class instance method"
+    }
+    
+}
+
+var ipl: A & B = Impl()
+
+ipl.doA()
+ipl.doB()
