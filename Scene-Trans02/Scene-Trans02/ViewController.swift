@@ -21,18 +21,21 @@ class ViewController: UIViewController {
     }
 
     @IBAction func moveByNavi(_ sender: Any) {
+        
+        // 두번째 뷰 컨트롤러 인스턴스 가져오기
         guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "SecondVC") else {
             return
         }
-        
+        // 화면 전환
         self.navigationController?.pushViewController(uvc, animated: true)
     }
     
     @IBAction func movePresent(_ sender: Any) {
+        // 두번째 뷰 컨트롤러 인스턴스 가져오기
         guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "SecondVC") else {
             return
         }
-        
+        // 화면 전환
         self.present(uvc, animated: true)
     }
 }

@@ -72,6 +72,14 @@
                                     <action selector="back:" destination="PKH-c9-2ex" eventType="touchUpInside" id="W9w-Qz-0cv"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSt-EJ-CGY">
+                                <rect key="frame" x="166" y="272" width="42" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="back2"/>
+                                <connections>
+                                    <action selector="back2:" destination="PKH-c9-2ex" eventType="touchUpInside" id="aDi-qH-OjY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="kNm-Gc-46T"/>
