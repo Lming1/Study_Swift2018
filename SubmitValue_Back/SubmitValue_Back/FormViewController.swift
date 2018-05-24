@@ -39,21 +39,24 @@ class FormViewController: UIViewController {
 //        vc.paramEmail = self.email.text
 //        vc.paramUpdate = self.isUpdate.isOn
 //        vc.paramInterval = self.interval.value
-        // 이전 화면으로 복귀한다...
-        
-//        self.presentingViewController?.dismiss(animated: true)
+
         
         
-        // AppDelegate 객체 인스턴스 호출
-        let ad = UIApplication.shared.delegate as? AppDelegate
+        // AppDelegate 객체 인스턴스 호출(앱종료시 안녕.)
+//        let ad = UIApplication.shared.delegate as? AppDelegate
 
         // 값 저장
-        ad?.paramEmail = self.email.text
-        ad?.paramUpdate = self.isUpdate.isOn
-        ad?.paramInterval = self.interval.value
+//        ad?.paramEmail = self.email.text
+//        ad?.paramUpdate = self.isUpdate.isOn
+//        ad?.paramInterval = self.interval.value
+        
+        // UserDefault 객체 인스턴스 호출(앱을 지우기 전까진 살아있다..)
+        let ud = UserDefaults.standard
+        ud.set(self.email.text, forKey: "email")
+        ud.set(self.isUpdate.isOn, forKey: "isUpdate")
+        ud.set(self.interval.value, forKey: "interval")
         
         // 이전 화면 복귀
-        
         self.presentingViewController?.dismiss(animated: true)
     }
 }
