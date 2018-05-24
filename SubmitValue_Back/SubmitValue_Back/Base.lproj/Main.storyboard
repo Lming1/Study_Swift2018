@@ -121,10 +121,16 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pxg-H5-H4F">
                                 <rect key="frame" x="290" y="177" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="onSwitch:" destination="cK2-Az-zdr" eventType="valueChanged" id="Ji2-Xp-sA9"/>
+                                </connections>
                             </switch>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Gb8-QY-6E3">
                                 <rect key="frame" x="249" y="225" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="onStepper:" destination="cK2-Az-zdr" eventType="valueChanged" id="Ib0-1a-hdP"/>
+                                </connections>
                             </stepper>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgI-Ee-G9R">
                                 <rect key="frame" x="163" y="285" width="49" height="30"/>
@@ -135,14 +141,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="자동갱신" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38z-oT-kwg">
-                                <rect key="frame" x="149" y="184" width="45" height="16"/>
+                                <rect key="frame" x="149" y="184" width="86" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0분마다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hha-lM-9im">
-                                <rect key="frame" x="149" y="231" width="42" height="16"/>
+                                <rect key="frame" x="149" y="231" width="63" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
@@ -155,7 +161,9 @@
                     <connections>
                         <outlet property="email" destination="2DA-2v-s1I" id="lf4-Uj-oA7"/>
                         <outlet property="interval" destination="Gb8-QY-6E3" id="98q-n9-doG"/>
+                        <outlet property="intervalText" destination="hha-lM-9im" id="YFL-MV-ljP"/>
                         <outlet property="isUpdate" destination="Pxg-H5-H4F" id="H7q-GX-EN5"/>
+                        <outlet property="isUpdateText" destination="38z-oT-kwg" id="eiA-rD-sYD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hoL-28-E92" userLabel="First Responder" sceneMemberID="firstResponder"/>

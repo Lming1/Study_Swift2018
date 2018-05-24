@@ -12,6 +12,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    // 값을 저장할 변수
+    
+    var paramEmail: String?
+    var paramUpdate: Bool?
+    var paramInterval: Double?
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
