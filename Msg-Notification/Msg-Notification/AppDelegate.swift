@@ -23,12 +23,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             notiCenter.requestAuthorization(options: [.alert, .badge, .sound]) { (didAllow, e) in }
             notiCenter.delegate = self
         } else {
-            // 경고창, 배지, 사운드를 사용하는 알림 환경 정보를 생성하고, 이를 어플리케이션에 저장
+            // 경고창, 배지, 사운드를 사용하는 알림 환경 정보를 생성하고, 이를 어플리케이션에 저장(구버전)
             let setting = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
             application.registerUserNotificationSettings(setting)
+            if let localNoti = launchOptions?[UIApplicationLaunchOptionsKey.localNotification] as? UILocalNotification {
+                // 알림으로 인해 앱이 실행된 경우
+                print((localNoti.userInfo?["name"])!)
+            }
         }
         return true
     }
+    
+//    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+//        print((notification.userInfo?["name"])!)
+//        if application.applicationState == UIApplicationState.active {
+//            // app 활성화된 상태일 때 실행 로직
+//        } else if application.applicationState == .inactive {
+//            // app이 비활성화 된직상태일 때 실행할 로직
+//        }
+//    }
     
     // app 실행 도중에 알림 메시지가 도착한 경우
     @available(iOS 10.0, *)
@@ -81,6 +94,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         } else {
             // UILocalNotification 객체를 이용한 로컬 알림(ios 9 이하)
+            // 알림 설정 확인
+            let setting = application.currentUserNotificationSettings
+            // 알림 설정이 되어 있지 않다면 사용자가 수신할 수없음에 따라, 종료
+            guard setting?.types != .none else {
+                print("Can't Schedule")
+                return
+            }
+            
+            // local 알람 instance 생성
+             let noti = UILocalNotification()
+            noti.fireDate = Date(timeIntervalSinceNow: 10) // 10초 후
+            noti.timeZone = TimeZone.autoupdatingCurrent
+            noti.alertBody = "다시 접속해주세요"
+            noti.alertAction = "학습하기"
+            noti.applicationIconBadgeNumber = 1
+            noti.soundName = UILocalNotificationDefaultSoundName
+            noti.userInfo = ["name": "test"]
+            
+            // 알람 객체를 스케줄러에 등록
+            application.scheduleLocalNotification(noti)
+            
         }
     }
 
