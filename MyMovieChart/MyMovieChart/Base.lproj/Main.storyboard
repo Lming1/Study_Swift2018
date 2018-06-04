@@ -31,14 +31,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="영화 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Khd-4g-wCw">
-                                            <rect key="frame" x="16" y="15" width="240" height="21"/>
+                                            <rect key="frame" x="60" y="15" width="240" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="영화에 대한 설명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQb-eW-uXr">
-                                            <rect key="frame" x="16" y="48" width="240" height="21"/>
+                                            <rect key="frame" x="60" y="48" width="240" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -58,12 +58,17 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0kF-ws-ycn">
+                                            <rect key="frame" x="3" y="5" width="55" height="68"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="desc" destination="wQb-eW-uXr" id="TL4-zl-fBk"/>
+                                    <outlet property="desc" destination="wQb-eW-uXr" id="0mQ-6Z-v1q"/>
                                     <outlet property="opendate" destination="pLt-4c-jwz" id="EbG-Ul-zhB"/>
-                                    <outlet property="rating" destination="BYy-0i-Kyo" id="qdM-AQ-iNw"/>
+                                    <outlet property="rating" destination="BYy-0i-Kyo" id="yyo-Wl-X1V"/>
+                                    <outlet property="thumbnail" destination="0kF-ws-ycn" id="FSE-kF-dvX"/>
                                     <outlet property="title" destination="Khd-4g-wCw" id="7kT-9Y-peV"/>
                                 </connections>
                             </tableViewCell>
