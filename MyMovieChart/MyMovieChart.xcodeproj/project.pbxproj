@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18235AC320C4E0C700EC0B51 /* MovieVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18235AC220C4E0C700EC0B51 /* MovieVO.swift */; };
+		18AC827620C5A07E006580D5 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AC827520C5A07E006580D5 /* MovieCell.swift */; };
 		18CB10A320BFEC1800E2A07A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CB10A220BFEC1800E2A07A /* AppDelegate.swift */; };
 		18CB10A520BFEC1800E2A07A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CB10A420BFEC1800E2A07A /* ViewController.swift */; };
 		18CB10A820BFEC1800E2A07A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CB10A620BFEC1800E2A07A /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		18235AC220C4E0C700EC0B51 /* MovieVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieVO.swift; sourceTree = "<group>"; };
+		18AC827520C5A07E006580D5 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		18CB109F20BFEC1800E2A07A /* MyMovieChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMovieChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CB10A220BFEC1800E2A07A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18CB10A420BFEC1800E2A07A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				18CB10A420BFEC1800E2A07A /* ViewController.swift */,
 				18CB10A620BFEC1800E2A07A /* Main.storyboard */,
 				18235AC220C4E0C700EC0B51 /* MovieVO.swift */,
+				18AC827520C5A07E006580D5 /* MovieCell.swift */,
 				18CB10B420BFF68C00E2A07A /* ListViewController.swift */,
 				18CB10A920BFEC1A00E2A07A /* Assets.xcassets */,
 				18CB10AB20BFEC1A00E2A07A /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 				18CB10A520BFEC1800E2A07A /* ViewController.swift in Sources */,
 				18235AC320C4E0C700EC0B51 /* MovieVO.swift in Sources */,
 				18CB10A320BFEC1800E2A07A /* AppDelegate.swift in Sources */,
+				18AC827620C5A07E006580D5 /* MovieCell.swift in Sources */,
 				18CB10B520BFF68C00E2A07A /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
