@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class MovieVO {
     var thumbnail: String? // 영화 섬네일 이미지 주소
@@ -15,5 +16,8 @@ class MovieVO {
     var detail: String? // 상세정보
     var opendate: String? // 개봉일
     var rating: Double? // 평점
+    var thumbnailImage: UIImage? // 썸네일 이미지를 담을 객체
+    
+    
     
 }

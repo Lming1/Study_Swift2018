@@ -42,7 +42,7 @@ class ListViewController: UITableViewController {
     
     func callMovieAPI() {
         // get uri
-        let url = "http://swiftapi.rubypaper.co.kr:2029/hoppin/movies?version=1&page=\(self.page)&count=10&genreId=&order=releasedateasc"
+        let url = "http://swiftapi.rubypaper.co.kr:2029/hoppin/movies?version=1&page=\(self.page)&count=30&genreId=&order=releasedateasc"
         let apiURI: URL! = URL(string: url)
         // rest api call
         let apidata = try! Data(contentsOf: apiURI)
@@ -64,12 +64,17 @@ class ListViewController: UITableViewController {
                 let r = row as! NSDictionary
                 // 테이블 뷰 리스트를 구성할 데이터 형식
                 let mvo = MovieVO()
+                
                 // 무비 배열의 각 데이터를 mvo 상수의 속성에 대입
                 mvo.title = r["title"] as? String
                 mvo.description = r["genreNames"] as? String
                 mvo.thumbnail = r["thumbnailImage"] as? String
                 mvo.detail = r["linkUrl"] as? String
                 mvo.rating = ((r["ratingAverage"] as! NSString).doubleValue)
+                // 웹상에 있는 이미지를 읽어와 UIImage 객체로 생성하기.
+                let url: URL! = URL(string: mvo.thumbnail!)
+                let imageData = try! Data(contentsOf: url)
+                mvo.thumbnailImage = UIImage(data: imageData)
                 
                 // list 배열에 추가
                 self.list.append(mvo)
@@ -91,6 +96,7 @@ class ListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = self.list[indexPath.row]
+        NSLog("제목 : \(row.title!), 호출된 행번호 : \(indexPath.row)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as! MovieCell
         // 데이터 소스에 저장된 값을 각 아울렛 변수에 할당하기
         cell.title?.text = row.title
@@ -101,12 +107,13 @@ class ListViewController: UITableViewController {
 //        cell.thumbnail.image = UIImage(named: row.thumbnail!)
         
         
-        // 섬네일 경로를 인자값으로 하는 URL 객체 생성
-        let url: URL! = URL(string: row.thumbnail!)
+        
+        // 섬네일 경로를 인자값으로 하는 URL 객체 생성(메모이제이션 기법에 따라 제외)
+//        let url: URL! = URL(string: row.thumbnail!)
         // 이미지를 읽어와 Data 객체 저장
-        let imageData = try! Data(contentsOf: url)
+//        let imageData = try! Data(contentsOf: url)
         // UIImage 객체를 생성하여 아울렛 변수의 Image 속성에 대입
-        cell.thumbnail.image = UIImage(data: imageData)
+//        cell.thumbnail.image = UIImage(data: imageData)
         
 //        cell.thumbnail.image = UIImage(data: try! Data(contentsOf: URL(string: row.thumbnail!)!))
         
@@ -119,6 +126,8 @@ class ListViewController: UITableViewController {
 //        desc?.text = row.description
 //        opendate?.text = row.opendate
 //        rating?.text = "\(row.rating!)"
+        // 이미지 객체 대입
+        cell.thumbnail.image = row.thumbnailImage
         return cell
         
 //        cell.textLabel?.text = row.title
