@@ -126,8 +126,14 @@ class ListViewController: UITableViewController {
 //        desc?.text = row.description
 //        opendate?.text = row.opendate
 //        rating?.text = "\(row.rating!)"
-        // 이미지 객체 대입
-        cell.thumbnail.image = row.thumbnailImage
+        DispatchQueue.main.async(execute: {
+            // 이미지 객체 대입
+            // Asynchronize 처리
+            NSLog("Asynchronize 실행")
+            cell.thumbnail.image = self.getThumnailImage(indexPath.row)
+        })
+        NSLog("methon 실행 종료. return cell")
+        
         return cell
         
 //        cell.textLabel?.text = row.title
@@ -146,5 +152,19 @@ class ListViewController: UITableViewController {
         self.page += 1
         self.callMovieAPI()
         self.tableView.reloadData()
+    }
+    
+    func getThumnailImage(_ index: Int) -> UIImage {
+        // 인자 값으로 받은 인덱스를 기반으로 해당하는 배열 데이터를 읽어옴
+        let mvo = self.list[index]
+        // memoization : 저장된 이미지가 있으면 해당 이미지 반환, 없을 경우 내려받아 저장한 후 반환
+        if let savadImage = mvo.thumbnailImage {
+            return savadImage
+        } else {
+            let url: URL! = URL(string: mvo.thumbnail!)
+            let imageData = try! Data(contentsOf: url)
+            mvo.thumbnailImage = UIImage(data: imageData)
+            return mvo.thumbnailImage!
+        }
     }
 }
