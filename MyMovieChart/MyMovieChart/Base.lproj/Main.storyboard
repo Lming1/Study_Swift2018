@@ -4,8 +4,9 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="4352" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -80,6 +81,7 @@
                                     <outlet property="rating" destination="BYy-0i-Kyo" id="yyo-Wl-X1V"/>
                                     <outlet property="thumbnail" destination="0kF-ws-ycn" id="FSE-kF-dvX"/>
                                     <outlet property="title" destination="Khd-4g-wCw" id="7kT-9Y-peV"/>
+                                    <segue destination="B29-e0-b3K" kind="show" identifier="segue_detail" id="j5C-Ia-xsI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -96,6 +98,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVw-pb-4TN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1120.8" y="123.68815592203899"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="y0U-yi-PmV">
+            <objects>
+                <viewController id="B29-e0-b3K" customClass="DetailViewController" customModule="MyMovieChart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A65-5v-VJE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cLo-8E-PV7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="SF6-0u-UZK"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="mfC-2E-I8h"/>
+                    <connections>
+                        <outlet property="wv" destination="cLo-8E-PV7" id="ku9-Mj-32O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gPa-xF-2Rt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1932" y="129.98500749625188"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="37Y-3o-bqW">

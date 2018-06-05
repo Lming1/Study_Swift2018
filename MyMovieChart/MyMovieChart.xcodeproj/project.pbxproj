@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18235AC320C4E0C700EC0B51 /* MovieVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18235AC220C4E0C700EC0B51 /* MovieVO.swift */; };
+		1876B26D20C6FBCD00FEDE86 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876B26C20C6FBCD00FEDE86 /* DetailViewController.swift */; };
 		18AC827620C5A07E006580D5 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AC827520C5A07E006580D5 /* MovieCell.swift */; };
 		18AC827B20C5A3D3006580D5 /* rain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18AC827820C5A3D3006580D5 /* rain.jpg */; };
 		18AC827C20C5A3D3006580D5 /* secret.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18AC827920C5A3D3006580D5 /* secret.jpg */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		18235AC220C4E0C700EC0B51 /* MovieVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieVO.swift; sourceTree = "<group>"; };
+		1876B26C20C6FBCD00FEDE86 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		18AC827520C5A07E006580D5 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		18AC827820C5A3D3006580D5 /* rain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rain.jpg; sourceTree = "<group>"; };
 		18AC827920C5A3D3006580D5 /* secret.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = secret.jpg; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				18CB10A620BFEC1800E2A07A /* Main.storyboard */,
 				18235AC220C4E0C700EC0B51 /* MovieVO.swift */,
 				18AC827520C5A07E006580D5 /* MovieCell.swift */,
+				1876B26C20C6FBCD00FEDE86 /* DetailViewController.swift */,
 				18CB10B420BFF68C00E2A07A /* ListViewController.swift */,
 				18CB10A920BFEC1A00E2A07A /* Assets.xcassets */,
 				18CB10AB20BFEC1A00E2A07A /* LaunchScreen.storyboard */,
@@ -167,6 +170,7 @@
 				18CB10A520BFEC1800E2A07A /* ViewController.swift in Sources */,
 				18235AC320C4E0C700EC0B51 /* MovieVO.swift in Sources */,
 				18CB10A320BFEC1800E2A07A /* AppDelegate.swift in Sources */,
+				1876B26D20C6FBCD00FEDE86 /* DetailViewController.swift in Sources */,
 				18AC827620C5A07E006580D5 /* MovieCell.swift in Sources */,
 				18CB10B520BFF68C00E2A07A /* ListViewController.swift in Sources */,
 			);
@@ -315,7 +319,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XN5BQUAUEN;
 				INFOPLIST_FILE = MyMovieChart/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -334,7 +338,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XN5BQUAUEN;
 				INFOPLIST_FILE = MyMovieChart/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

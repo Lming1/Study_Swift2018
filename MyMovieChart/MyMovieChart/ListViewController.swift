@@ -168,3 +168,21 @@ class ListViewController: UITableViewController {
         }
     }
 }
+
+// MARK: - 화면 전환 시 값을 넘겨주기 위한 세그웨이 처리
+extension ListViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // 실행된 세그웨이의 식별자가 다음과 같다면. 사용자가 클릭한 행을 찾는다.
+        if segue.identifier == "segue_detail" {
+            // sender 인자 캐스팅. 테이블 셀 객체 변환.
+            let cell = sender as! MovieCell
+            // 사용자가 클릭한 행을 찾기
+            let path = self.tableView.indexPath(for: cell)
+            // API 영화 데이터 배열 중에서 선택된 행에 대한 데이터 추출
+            let movieinfo = self.list[path!.row]
+            // 행 정보를 통해 선택된 영화데이터를 찾은 다음, 목적지 뷰 컨트롤러의 mvo 변수 대입
+            let detailVC = segue.destination as? DetailViewController
+            detailVC?.mvo = movieinfo
+        }
+    }
+}
