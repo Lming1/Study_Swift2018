@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,9 +22,11 @@
                             <rect key="frame" x="0.0" y="108" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lR6-Lf-Oc5">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lR6-Lf-Oc5">
                                     <rect key="frame" x="168" y="-9" width="39" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="39" id="lMA-f3-jLf"/>
+                                    </constraints>
                                     <state key="normal" title="더보기"/>
                                     <connections>
                                         <action selector="more:" destination="Lhy-65-ig9" eventType="touchUpInside" id="PLy-S6-7oG"/>
@@ -31,6 +34,10 @@
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="lR6-Lf-Oc5" secondAttribute="bottom" constant="23" id="q15-Gs-BNj"/>
+                                <constraint firstItem="lR6-Lf-Oc5" firstAttribute="centerX" secondItem="4cD-BG-h6X" secondAttribute="centerX" id="waP-Jw-fU7"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListCell" id="A4j-59-Pad" customClass="MovieCell" customModule="MyMovieChart" customModuleProvider="target">
@@ -40,16 +47,20 @@
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="영화 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Khd-4g-wCw">
-                                            <rect key="frame" x="60" y="15" width="240" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="영화 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Khd-4g-wCw">
+                                            <rect key="frame" x="60" y="15" width="63.5" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="juN-Ks-A2V"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="영화에 대한 설명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQb-eW-uXr">
-                                            <rect key="frame" x="60" y="48" width="240" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="영화에 대한 설명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQb-eW-uXr">
+                                            <rect key="frame" x="60" y="48" width="240" height="14.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="14.5" id="lH1-T9-av0"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -61,9 +72,12 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="평점" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYy-0i-Kyo">
-                                            <rect key="frame" x="321" y="51" width="38" height="15"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평점" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYy-0i-Kyo">
+                                            <rect key="frame" x="335" y="51" width="24" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="7mb-yk-BIQ"/>
+                                                <constraint firstAttribute="width" constant="24" id="ThK-k2-mSg"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -73,7 +87,20 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="wQb-eW-uXr" firstAttribute="leading" secondItem="Brc-gF-qSK" secondAttribute="leadingMargin" constant="44" id="4pu-3S-lCq"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Khd-4g-wCw" secondAttribute="trailing" id="G7T-wu-dpP"/>
+                                        <constraint firstItem="Khd-4g-wCw" firstAttribute="top" secondItem="Brc-gF-qSK" secondAttribute="topMargin" constant="4" id="LQy-7Q-7yT"/>
+                                        <constraint firstItem="Khd-4g-wCw" firstAttribute="leading" secondItem="Brc-gF-qSK" secondAttribute="leadingMargin" constant="44" id="ORc-dV-G6G"/>
+                                        <constraint firstItem="BYy-0i-Kyo" firstAttribute="leading" secondItem="wQb-eW-uXr" secondAttribute="trailing" constant="35" id="UKy-8Y-OWS"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="wQb-eW-uXr" secondAttribute="bottom" constant="6.5" id="Yv4-a6-bCp"/>
+                                        <constraint firstItem="wQb-eW-uXr" firstAttribute="top" secondItem="Khd-4g-wCw" secondAttribute="bottom" constant="12" id="aAU-za-NHK"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="BYy-0i-Kyo" secondAttribute="bottom" constant="14" id="93W-jO-SGw"/>
+                                    <constraint firstAttribute="trailing" secondItem="BYy-0i-Kyo" secondAttribute="trailing" constant="16" id="hl9-7R-WBg"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="desc" destination="wQb-eW-uXr" id="0mQ-6Z-v1q"/>
                                     <outlet property="opendate" destination="pLt-4c-jwz" id="EbG-Ul-zhB"/>
@@ -110,9 +137,11 @@
                             <rect key="frame" x="0.0" y="82" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSo-8B-kVX">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSo-8B-kVX">
                                     <rect key="frame" x="168" y="0.0" width="39" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="39" id="i2m-VV-CwK"/>
+                                    </constraints>
                                     <state key="normal" title="더보기"/>
                                     <connections>
                                         <action selector="more:" destination="ZrF-YK-hZu" eventType="touchUpInside" id="E6G-MA-l1L"/>
@@ -120,6 +149,10 @@
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="JSo-8B-kVX" firstAttribute="centerX" secondItem="6IY-eH-gku" secondAttribute="centerX" id="Uw5-HK-hzG"/>
+                                <constraint firstAttribute="bottom" secondItem="JSo-8B-kVX" secondAttribute="bottom" constant="14" id="mP2-X0-6B0"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tCell" rowHeight="54" id="pMO-Ho-ZCd" customClass="TheaterCell" customModule="MyMovieChart" customModuleProvider="target">
@@ -143,14 +176,21 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="연락처" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cQ-Ki-2on">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="연락처" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cQ-Ki-2on">
                                             <rect key="frame" x="236" y="1" width="105" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="105" id="7mH-u5-S67"/>
+                                                <constraint firstAttribute="height" constant="17" id="Kgi-CY-7PV"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="7cQ-Ki-2on" firstAttribute="top" secondItem="Ca2-Ym-8GU" secondAttribute="top" constant="1" id="CKD-0P-DDz"/>
+                                        <constraint firstAttribute="trailing" secondItem="7cQ-Ki-2on" secondAttribute="trailing" id="mR7-I8-cdu"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="addr" destination="yJX-Xq-Qr8" id="1kd-Rc-vAq"/>
@@ -182,12 +222,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UcY-fJ-Yks">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UcY-fJ-Yks">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UcY-fJ-Yks" firstAttribute="top" secondItem="Jbf-Mi-DAB" secondAttribute="top" id="7cP-QD-kX4"/>
+                            <constraint firstAttribute="bottom" secondItem="UcY-fJ-Yks" secondAttribute="bottom" id="ERv-vj-pEN"/>
+                            <constraint firstItem="UcY-fJ-Yks" firstAttribute="trailing" secondItem="Uor-Uy-eSD" secondAttribute="trailing" id="NGE-jC-PW5"/>
+                            <constraint firstItem="UcY-fJ-Yks" firstAttribute="leading" secondItem="Uor-Uy-eSD" secondAttribute="leading" id="k1J-A9-8GL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Uor-Uy-eSD"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="7O1-IO-E9z"/>
@@ -224,9 +269,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cLo-8E-PV7">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLo-8E-PV7">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -240,6 +284,12 @@
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cLo-8E-PV7" firstAttribute="top" secondItem="A65-5v-VJE" secondAttribute="top" id="NG9-5a-ugG"/>
+                            <constraint firstItem="cLo-8E-PV7" firstAttribute="trailing" secondItem="SF6-0u-UZK" secondAttribute="trailing" id="SIU-6w-guq"/>
+                            <constraint firstItem="cLo-8E-PV7" firstAttribute="leading" secondItem="SF6-0u-UZK" secondAttribute="leading" id="s4H-Mb-btM"/>
+                            <constraint firstAttribute="bottom" secondItem="cLo-8E-PV7" secondAttribute="bottom" id="t0o-2o-aJV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SF6-0u-UZK"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="mfC-2E-I8h"/>
