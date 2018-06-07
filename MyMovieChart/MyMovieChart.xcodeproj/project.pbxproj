@@ -12,6 +12,8 @@
 		184AAADD20C8DAB900AC1F45 /* Listbullets.png in Resources */ = {isa = PBXBuildFile; fileRef = 184AAADB20C8DAB900AC1F45 /* Listbullets.png */; };
 		184AAADF20C8DD4F00AC1F45 /* TheaterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AAADE20C8DD4F00AC1F45 /* TheaterCell.swift */; };
 		184AAAE120C8DDF700AC1F45 /* TheaterListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AAAE020C8DDF700AC1F45 /* TheaterListController.swift */; };
+		184AAAE420C8F2DD00AC1F45 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184AAAE320C8F2DD00AC1F45 /* MapKit.framework */; };
+		184AAAE620C8F32800AC1F45 /* TheaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AAAE520C8F32800AC1F45 /* TheaterViewController.swift */; };
 		1876B26D20C6FBCD00FEDE86 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876B26C20C6FBCD00FEDE86 /* DetailViewController.swift */; };
 		18AC827620C5A07E006580D5 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AC827520C5A07E006580D5 /* MovieCell.swift */; };
 		18AC827B20C5A3D3006580D5 /* rain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18AC827820C5A3D3006580D5 /* rain.jpg */; };
@@ -31,6 +33,8 @@
 		184AAADB20C8DAB900AC1F45 /* Listbullets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Listbullets.png; sourceTree = "<group>"; };
 		184AAADE20C8DD4F00AC1F45 /* TheaterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterCell.swift; sourceTree = "<group>"; };
 		184AAAE020C8DDF700AC1F45 /* TheaterListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterListController.swift; sourceTree = "<group>"; };
+		184AAAE320C8F2DD00AC1F45 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		184AAAE520C8F32800AC1F45 /* TheaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterViewController.swift; sourceTree = "<group>"; };
 		1876B26C20C6FBCD00FEDE86 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		18AC827520C5A07E006580D5 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		18AC827820C5A3D3006580D5 /* rain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rain.jpg; sourceTree = "<group>"; };
@@ -51,12 +55,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184AAAE420C8F2DD00AC1F45 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		184AAAE220C8F2DD00AC1F45 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				184AAAE320C8F2DD00AC1F45 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		18AC827720C5A33C006580D5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +88,7 @@
 				18AC827720C5A33C006580D5 /* Resources */,
 				18CB10A120BFEC1800E2A07A /* MyMovieChart */,
 				18CB10A020BFEC1800E2A07A /* Products */,
+				184AAAE220C8F2DD00AC1F45 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +106,7 @@
 				18CB10A220BFEC1800E2A07A /* AppDelegate.swift */,
 				18CB10A420BFEC1800E2A07A /* ViewController.swift */,
 				18CB10A620BFEC1800E2A07A /* Main.storyboard */,
+				184AAAE520C8F32800AC1F45 /* TheaterViewController.swift */,
 				184AAAE020C8DDF700AC1F45 /* TheaterListController.swift */,
 				184AAADE20C8DD4F00AC1F45 /* TheaterCell.swift */,
 				18235AC220C4E0C700EC0B51 /* MovieVO.swift */,
@@ -187,6 +202,7 @@
 				184AAAE120C8DDF700AC1F45 /* TheaterListController.swift in Sources */,
 				18CB10A320BFEC1800E2A07A /* AppDelegate.swift in Sources */,
 				1876B26D20C6FBCD00FEDE86 /* DetailViewController.swift in Sources */,
+				184AAAE620C8F32800AC1F45 /* TheaterViewController.swift in Sources */,
 				18AC827620C5A07E006580D5 /* MovieCell.swift in Sources */,
 				18CB10B520BFF68C00E2A07A /* ListViewController.swift in Sources */,
 			);

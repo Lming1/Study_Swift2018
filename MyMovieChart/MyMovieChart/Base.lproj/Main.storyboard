@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment version="4352" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -157,6 +156,7 @@
                                     <outlet property="addr" destination="yJX-Xq-Qr8" id="1kd-Rc-vAq"/>
                                     <outlet property="name" destination="KYA-FQ-dMt" id="ONh-v4-Lsp"/>
                                     <outlet property="tel" destination="7cQ-Ki-2on" id="iCW-zB-Ij4"/>
+                                    <segue destination="EoS-aI-zca" kind="show" identifier="segue_map" id="vxX-qW-49V"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -173,6 +173,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSc-FT-tEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2133.5999999999999" y="881.10944527736137"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="Bjv-qv-eC3">
+            <objects>
+                <viewController id="EoS-aI-zca" customClass="TheaterViewController" customModule="MyMovieChart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jbf-Mi-DAB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UcY-fJ-Yks">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Uor-Uy-eSD"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="7O1-IO-E9z"/>
+                    <connections>
+                        <outlet property="map" destination="UcY-fJ-Yks" id="gnz-5V-9UZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KYR-M4-YCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2935.1999999999998" y="880.20989505247383"/>
         </scene>
         <!--영화관-->
         <scene sceneID="rpO-zf-Pyx">
