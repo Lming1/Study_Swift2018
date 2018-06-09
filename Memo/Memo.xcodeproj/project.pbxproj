@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1892545720CC55E800B6CA1E /* memo-0-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1892545620CC55E800B6CA1E /* memo-0-1.jpg */; };
 		18D6E35620C9903200B548EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D6E35520C9903200B548EC /* AppDelegate.swift */; };
 		18D6E35820C9903200B548EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D6E35720C9903200B548EC /* ViewController.swift */; };
 		18D6E35B20C9903200B548EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D6E35920C9903200B548EC /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1892545620CC55E800B6CA1E /* memo-0-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "memo-0-1.jpg"; sourceTree = "<group>"; };
 		18D6E35220C9903200B548EC /* Memo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D6E35520C9903200B548EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18D6E35720C9903200B548EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,9 +49,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1892545520CC532000B6CA1E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1892545620CC55E800B6CA1E /* memo-0-1.jpg */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		18D6E34920C9903200B548EC = {
 			isa = PBXGroup;
 			children = (
+				1892545520CC532000B6CA1E /* Resources */,
 				18D6E35420C9903200B548EC /* Memo */,
 				18D6E35320C9903200B548EC /* Products */,
 			);
@@ -140,6 +151,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1892545720CC55E800B6CA1E /* memo-0-1.jpg in Resources */,
 				18D6E36320C9903300B548EC /* LaunchScreen.storyboard in Resources */,
 				18D6E36020C9903300B548EC /* Assets.xcassets in Resources */,
 				18D6E35B20C9903200B548EC /* Main.storyboard in Resources */,
