@@ -57,8 +57,31 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         // 4. 작성폼 화면 종료, 이전 화면으로 돌아가기
         _ = self.navigationController?.popViewController(animated: true)
     }
-    // Image Picker
+    //
     @IBAction func pick(_ sender: Any) {
+        let select = UIAlertController(title: "이미지를 가져올 곳을 선택해주세요", message: nil, preferredStyle: .actionSheet)
+        select.addAction(UIAlertAction(title: "카메라", style: .default) { (_) in
+            self.presentPicker(source: .camera)
+        })
+        select.addAction(UIAlertAction(title: "앨범", style: .default){ (_) in
+            self.presentPicker(source: .savedPhotosAlbum)
+        })
+        select.addAction(UIAlertAction(title: "라이브러리", style: .default) { (_) in
+            self.presentPicker(source: .photoLibrary)
+        })
+        select.addAction(UIAlertAction(title: "취소", style: .cancel))
+        self.present(select, animated: false)
+    }
+    
+    // Image Picker
+    func presentPicker(source: UIImagePickerControllerSourceType) {
+        guard UIImagePickerController.isSourceTypeAvailable(source) == true else {
+            let alert = UIAlertController(title: "사용할 수 없는 타입입니다.", message: nil, preferredStyle: .alert)
+            // 종료가 안되서..추가 
+            alert.addAction(UIAlertAction(title: "확인", style: .default))
+            self.present(alert, animated: false)
+            return
+        }
         //Create Image Picker Instance
         let picker = UIImagePickerController()
         picker.delegate = self
