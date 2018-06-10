@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -78,6 +77,7 @@
                                     <outlet property="contents" destination="HHK-jj-Iec" id="jGi-Rs-UNG"/>
                                     <outlet property="regdate" destination="0dA-SJ-W4m" id="xhB-n9-3cS"/>
                                     <outlet property="subject" destination="eJ7-lo-tEf" id="c7L-ya-QzN"/>
+                                    <segue destination="8Db-xh-tmc" kind="show" identifier="read_segue" id="w3C-wC-x6C"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="memoCellWithImage" rowHeight="80" id="t3M-FO-0or" customClass="MemoCell" customModule="Memo" customModuleProvider="target">
@@ -141,6 +141,7 @@
                                     <outlet property="img" destination="Sb8-ns-2oI" id="Ypu-7o-TxG"/>
                                     <outlet property="regdate" destination="qFj-56-w5z" id="E4Q-ta-prr"/>
                                     <outlet property="subject" destination="UC9-dR-cbG" id="Tu6-ub-naO"/>
+                                    <segue destination="8Db-xh-tmc" kind="show" identifier="read_segue" id="vrf-Zc-0eG"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -156,9 +157,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="8Db-xh-tmc" kind="show" identifier="read_sg" id="vF2-kj-kL4"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Csg-Um-FIc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -300,4 +298,7 @@
             <point key="canvasLocation" x="-169" y="80"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="w3C-wC-x6C"/>
+    </inferredMetricsTieBreakers>
 </document>
