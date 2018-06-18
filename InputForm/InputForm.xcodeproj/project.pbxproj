@@ -12,6 +12,8 @@
 		18286D6820D78E3B00752477 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18286D6620D78E3B00752477 /* Main.storyboard */; };
 		18286D6A20D78E3D00752477 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18286D6920D78E3D00752477 /* Assets.xcassets */; };
 		18286D6D20D78E3D00752477 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18286D6B20D78E3D00752477 /* LaunchScreen.storyboard */; };
+		18286D7520D7A21500752477 /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18286D7420D7A21500752477 /* ReadViewController.swift */; };
+		18286D7720D7A50C00752477 /* SDMiSaeng.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18286D7620D7A4AC00752477 /* SDMiSaeng.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		18286D6920D78E3D00752477 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18286D6C20D78E3D00752477 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18286D6E20D78E3D00752477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18286D7420D7A21500752477 /* ReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
+		18286D7620D7A4AC00752477 /* SDMiSaeng.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SDMiSaeng.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +58,14 @@
 		18286D6120D78E3B00752477 /* InputForm */ = {
 			isa = PBXGroup;
 			children = (
+				18286D7620D7A4AC00752477 /* SDMiSaeng.ttf */,
 				18286D6220D78E3B00752477 /* AppDelegate.swift */,
 				18286D6420D78E3B00752477 /* ViewController.swift */,
 				18286D6620D78E3B00752477 /* Main.storyboard */,
 				18286D6920D78E3D00752477 /* Assets.xcassets */,
 				18286D6B20D78E3D00752477 /* LaunchScreen.storyboard */,
 				18286D6E20D78E3D00752477 /* Info.plist */,
+				18286D7420D7A21500752477 /* ReadViewController.swift */,
 			);
 			path = InputForm;
 			sourceTree = "<group>";
@@ -122,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18286D7720D7A50C00752477 /* SDMiSaeng.ttf in Resources */,
 				18286D6D20D78E3D00752477 /* LaunchScreen.storyboard in Resources */,
 				18286D6A20D78E3D00752477 /* Assets.xcassets in Resources */,
 				18286D6820D78E3B00752477 /* Main.storyboard in Resources */,
@@ -136,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18286D6520D78E3B00752477 /* ViewController.swift in Sources */,
+				18286D7520D7A21500752477 /* ReadViewController.swift in Sources */,
 				18286D6320D78E3B00752477 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
