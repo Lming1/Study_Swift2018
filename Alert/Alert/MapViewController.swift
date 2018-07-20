@@ -38,26 +38,8 @@ class MapViewController: UIViewController {
         alert.addAction(okAction)
         
         // Map view
-        let contentVC = UIViewController()
-        
-        // 뷰 컨트롤러에 Mapkit view 추가
-        let mapkitView = MKMapView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        contentVC.view = mapkitView
-        contentVC.preferredContentSize.height = 200
-        // 위치 정보 설정
-        let pos = CLLocationCoordinate2D(latitude: 37.514322, longitude: 126.894623)
-        // 축척 설정
-        let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
-        // 지도 영역 정의
-        let region = MKCoordinateRegion(center: pos, span: span)
-        // 지도 뷰에 표시
-        mapkitView.region = region
-        mapkitView.regionThatFits(region)
-        // 위치를 핀으로 표시
-        let point = MKPointAnnotation()
-        point.coordinate = pos
-        mapkitView.addAnnotation(point)
-        
+        let contentVC = MapKitViewController()
+
         alert.setValue(contentVC, forKey: "contentViewController")
         
         self.present(alert, animated: false)
