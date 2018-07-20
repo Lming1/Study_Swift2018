@@ -12,6 +12,8 @@
 		18547D8120FCE19800F2EDE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18547D7F20FCE19800F2EDE4 /* Main.storyboard */; };
 		18547D8320FCE19800F2EDE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18547D8220FCE19800F2EDE4 /* Assets.xcassets */; };
 		18547D8620FCE19800F2EDE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18547D8420FCE19800F2EDE4 /* LaunchScreen.storyboard */; };
+		187983D321021184009A438C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187983D221021184009A438C /* MapViewController.swift */; };
+		187983D5210214F8009A438C /* MapKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187983D4210214F8009A438C /* MapKitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		18547D8220FCE19800F2EDE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18547D8520FCE19800F2EDE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18547D8720FCE19800F2EDE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		187983D221021184009A438C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		187983D4210214F8009A438C /* MapKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				18547D8220FCE19800F2EDE4 /* Assets.xcassets */,
 				18547D8420FCE19800F2EDE4 /* LaunchScreen.storyboard */,
 				18547D8720FCE19800F2EDE4 /* Info.plist */,
+				187983D221021184009A438C /* MapViewController.swift */,
+				187983D4210214F8009A438C /* MapKitViewController.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -136,6 +142,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				18547D7E20FCE19800F2EDE4 /* ViewController.swift in Sources */,
+				187983D321021184009A438C /* MapViewController.swift in Sources */,
+				187983D5210214F8009A438C /* MapKitViewController.swift in Sources */,
 				18547D7C20FCE19700F2EDE4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

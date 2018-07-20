@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     
     @objc func defaultAlert(_ sender: Any) {
         // 알림창 정의
-        let alert = UIAlertController(title: nil, message: "메세지", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         // 버튼 정의
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         let okAction = UIAlertAction(title: "Ok", style: .default)
