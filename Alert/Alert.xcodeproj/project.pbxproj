@@ -16,6 +16,7 @@
 		187983D5210214F8009A438C /* MapKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187983D4210214F8009A438C /* MapKitViewController.swift */; };
 		187983D92102164B009A438C /* rating5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 187983D72102164A009A438C /* rating5@2x.png */; };
 		187983DA2102164B009A438C /* note.png in Resources */ = {isa = PBXBuildFile; fileRef = 187983D82102164A009A438C /* note.png */; };
+		187983DC21021702009A438C /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187983DB21021702009A438C /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		187983D4210214F8009A438C /* MapKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitViewController.swift; sourceTree = "<group>"; };
 		187983D72102164A009A438C /* rating5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rating5@2x.png"; sourceTree = "<group>"; };
 		187983D82102164A009A438C /* note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = note.png; sourceTree = "<group>"; };
+		187983DB21021702009A438C /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				18547D8720FCE19800F2EDE4 /* Info.plist */,
 				187983D221021184009A438C /* MapViewController.swift */,
 				187983D4210214F8009A438C /* MapKitViewController.swift */,
+				187983DB21021702009A438C /* ImageViewController.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			files = (
 				18547D7E20FCE19800F2EDE4 /* ViewController.swift in Sources */,
 				187983D321021184009A438C /* MapViewController.swift in Sources */,
+				187983DC21021702009A438C /* ImageViewController.swift in Sources */,
 				187983D5210214F8009A438C /* MapKitViewController.swift in Sources */,
 				18547D7C20FCE19700F2EDE4 /* AppDelegate.swift in Sources */,
 			);

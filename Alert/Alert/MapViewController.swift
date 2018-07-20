@@ -20,11 +20,31 @@ class MapViewController: UIViewController {
         alertBtn.addTarget(self, action: #selector(mapAlert(_:)), for: .touchUpInside)
         
         self.view.addSubview(alertBtn)
+        
+        let imageBtn = UIButton(type: .system)
+        
+        imageBtn.frame = CGRect(x: 0, y: 200, width: 100, height: 30)
+        imageBtn.center.x = self.view.frame.width / 2
+        imageBtn.setTitle("Image Alert", for: .normal)
+        imageBtn.addTarget(self, action: #selector(imageAlert(_:)), for: .touchUpInside)
+        
+        self.view.addSubview(imageBtn)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func imageAlert(_ sender: UIButton) {
+        let alert = UIAlertController(title: nil, message: "평점", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default)
+        
+        alert.addAction(okAction)
+        
+        let contentVC = ImageViewController()
+        alert.setValue(contentVC, forKey: "contentViewController")
+        self.present(alert, animated: false)
     }
     
     
@@ -39,9 +59,7 @@ class MapViewController: UIViewController {
         
         // Map view
         let contentVC = MapKitViewController()
-
         alert.setValue(contentVC, forKey: "contentViewController")
-        
         self.present(alert, animated: false)
     }
     
