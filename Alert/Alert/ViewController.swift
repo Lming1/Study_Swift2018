@@ -25,9 +25,21 @@ class ViewController: UIViewController {
     
     @objc func defaultAlert(_ sender: Any) {
         // 알림창 정의
+        let alert = UIAlertController(title: nil, message: "메세지", preferredStyle: .alert)
         // 버튼 정의
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let okAction = UIAlertAction(title: "Ok", style: .default)
         // 버튼 -> 알림창 추가
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        
+        // 알림창에 들어갈 뷰 컨트롤러
+        let v = UIViewController()
+        v.view.backgroundColor = UIColor.blue // 컨텐츠뷰 영역 확인을 위한 색상 지정
+        // 알림창에 뷰 컨트롤러 등록
+        alert.setValue(v, forKey: "contentViewController")
         // 알림창 화면 표시
+        self.present(alert, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
