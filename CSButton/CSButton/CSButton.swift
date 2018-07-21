@@ -59,6 +59,8 @@ class CSButton: UIButton {
             self.layer.cornerRadius = 50
             self.setTitle("Circle Button", for: .normal)
         }
+        
+        self.addTarget(self, action: #selector(counting(_:)), for: .touchUpInside)
     }
     
     init() {
@@ -83,6 +85,12 @@ class CSButton: UIButton {
         self.layer.borderWidth = 2
         self.layer.borderColor = UIColor.black.cgColor
         self.setTitle("코드로 생성된 버튼", for: .normal)
+    }
+    
+    
+    @objc func counting(_ sender: UIButton) {
+        sender.tag = sender.tag + 1
+        sender.setTitle("\(sender.tag)번째 클릭", for: .normal)
     }
 
 }
