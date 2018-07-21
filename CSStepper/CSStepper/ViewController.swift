@@ -15,12 +15,17 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         let stepper = CSStepper()
         stepper.frame = CGRect(x: 30, y: 100, width: 130, height: 30)
+        stepper.addTarget(self, action: #selector(logging(_:)), for: .valueChanged)
         self.view.addSubview(stepper)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func logging(_ sender: CSStepper) {
+        NSLog("현재 Stepper 값 : \(sender.value)")
     }
 
 

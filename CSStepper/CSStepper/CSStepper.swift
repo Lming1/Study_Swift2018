@@ -10,7 +10,7 @@ import UIKit
 
 // 미리보기 지원 어노테이션
 @IBDesignable
-public class CSStepper: UIView {
+public class CSStepper: UIControl {
     
     public var leftBtn = UIButton(type: .system)
     public var rightBtn = UIButton(type: .system)
@@ -19,6 +19,7 @@ public class CSStepper: UIView {
     public var value: Int = 0 {
         didSet { // 프로퍼티 값 변경 시 자동 호출
             self.centerLabel.text = String(value)
+            self.sendActions(for: .valueChanged)
         }
     }
     
