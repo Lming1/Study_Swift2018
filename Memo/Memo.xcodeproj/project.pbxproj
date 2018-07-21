@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		186A657A21038527001D8CE9 /* CSLogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A657921038527001D8CE9 /* CSLogButton.swift */; };
 		1892545720CC55E800B6CA1E /* memo-0-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1892545620CC55E800B6CA1E /* memo-0-1.jpg */; };
 		18D6E35620C9903200B548EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D6E35520C9903200B548EC /* AppDelegate.swift */; };
 		18D6E35820C9903200B548EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D6E35720C9903200B548EC /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		186A657921038527001D8CE9 /* CSLogButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSLogButton.swift; sourceTree = "<group>"; };
 		1892545620CC55E800B6CA1E /* memo-0-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "memo-0-1.jpg"; sourceTree = "<group>"; };
 		18D6E35220C9903200B548EC /* Memo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D6E35520C9903200B548EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				18D6E37220C9ACB000B548EC /* MemoReadVC.swift */,
 				18D6E37420C9AD0E00B548EC /* MemoCell.swift */,
 				18D6E37620C9AD4A00B548EC /* MemoData.swift */,
+				186A657921038527001D8CE9 /* CSLogButton.swift */,
 			);
 			path = Memo;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				186A657A21038527001D8CE9 /* CSLogButton.swift in Sources */,
 				18D6E37520C9AD0E00B548EC /* MemoCell.swift in Sources */,
 				18D6E37720C9AD4A00B548EC /* MemoData.swift in Sources */,
 				18D6E35820C9903200B548EC /* ViewController.swift in Sources */,
