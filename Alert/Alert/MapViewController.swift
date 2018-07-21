@@ -29,6 +29,28 @@ class MapViewController: UIViewController {
         imageBtn.addTarget(self, action: #selector(imageAlert(_:)), for: .touchUpInside)
         
         self.view.addSubview(imageBtn)
+        
+        let sliderBtn = UIButton(type: .system)
+        
+        sliderBtn.frame = CGRect(x: 0, y: 250, width: 100, height: 30)
+        sliderBtn.center.x = self.view.frame.width / 2
+        sliderBtn.setTitle("Slider Alert", for: .normal)
+        sliderBtn.addTarget(self, action: #selector(sliderAlert(_:)), for: .touchUpInside)
+        
+        self.view.addSubview(sliderBtn)
+        
+        let listBtn = UIButton(type: .system)
+        
+        listBtn.frame = CGRect(x: 0, y: 300, width: 100, height: 30)
+        listBtn.center.x = self.view.frame.width / 2
+        listBtn.setTitle("List Alert", for: .normal)
+        listBtn.addTarget(self, action: #selector(listAlert(_:)), for: .touchUpInside)
+        
+        self.view.addSubview(listBtn)
+    }
+    
+    func didSelectRowAt(indexPath: IndexPath) {
+        print(">> 선택된 행은 \(indexPath.row)입니다.")
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,6 +84,32 @@ class MapViewController: UIViewController {
         alert.setValue(contentVC, forKey: "contentViewController")
         self.present(alert, animated: false)
     }
+    
+    @objc func sliderAlert(_ sender: Any) {
+        let contentVC = ControlViewController()
+        
+        let alert = UIAlertController(title: nil, message: "평점 입력", preferredStyle: .alert)
+        alert.setValue(contentVC, forKey: "contentViewController")
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            print(">> sliderValue = \(contentVC.sliderValue)")
+        }
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: false)
+    }
+    
+    @objc func listAlert(_ sender: Any) {
+        let contentVC = ListViewController()
+        contentVC.delegate = self
+        
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        alert.setValue(contentVC, forKey: "contentViewController")
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        self.present(alert, animated: false)
+    }
+    
+    
     
 
     /*
