@@ -42,7 +42,7 @@ public class CSStepper: UIView {
     @IBInspectable
     public var bgColor: UIColor = UIColor.cyan {
         didSet {
-            self.centerLabel.backgroundColor = backgroundColor
+            self.centerLabel.backgroundColor = bgColor
         }
     }
     
