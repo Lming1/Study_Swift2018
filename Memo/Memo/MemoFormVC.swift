@@ -20,8 +20,16 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         self.contents.delegate = self
         
         // background image
+//        UIGraphicsBeginImageContext(self.view.frame.size)
+//        UIImage(named: "memo-background")?.draw(in: self.view.bounds)
+//        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+//        UIGraphicsEndImageContext()
         let bgImage = UIImage(named: "memo-background")!
         self.view.backgroundColor = UIColor(patternImage: bgImage)
+//        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+//        backgroundImage.image = UIImage(named: "memo-background")
+//        backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
+//        self.view.insertSubview(backgroundImage, at: 0)
         
         // textview
         self.contents.layer.borderWidth = 0
@@ -32,6 +40,15 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         style.lineSpacing = 9
         self.contents.attributedText = NSAttributedString(string: " ", attributes: [NSAttributedStringKey.paragraphStyle: style])
         self.contents.text = ""
+    }
+    
+    // 네비게이션 바 숨기기
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let bar = self.navigationController?.navigationBar
+        let ts = TimeInterval(0.3)
+        UIView.animate(withDuration: ts) {
+            bar?.alpha = ( bar?.alpha == 0 ? 1 : 0 )
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,10 +65,17 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     }
     
     @IBAction func save(_ sender: Any) {
+        // 경고창 추가.. 근데 뭔가 코드만 복잡해지네
+        let alertV = UIViewController()
+        let iconImage = UIImage(named: "warning-icon-60")
+        alertV.view = UIImageView(image: iconImage)
+        alertV.preferredContentSize = iconImage?.size ?? CGSize.zero
         // 1. 내용을 입력하지 않았을 경우
         guard self.contents.text?.isEmpty == false else {
             let alert = UIAlertController(title: nil, message: "내용을 입력해주세요", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            // add contentViewController.?
+            alert.setValue(alertV, forKey: "contentViewController")
             self.present(alert, animated: true)
             return
         }
