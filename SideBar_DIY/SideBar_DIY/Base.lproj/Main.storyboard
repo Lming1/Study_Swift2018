@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E6M-tk-HH4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="102" y="54"/>
         </scene>
-        <!--Front View Controller-->
+        <!--첫 화면-->
         <scene sceneID="IcN-6S-vMT">
             <objects>
                 <viewController id="zbe-Rx-dCN" customClass="FrontViewController" customModule="SideBar_DIY" customModuleProvider="target" sceneMemberID="viewController">
@@ -44,7 +44,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="rY0-VN-rik"/>
                     </view>
-                    <navigationItem key="navigationItem" id="PBw-ap-SaE"/>
+                    <navigationItem key="navigationItem" title="첫 화면" id="lqc-4R-whL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnw-yO-oyG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
