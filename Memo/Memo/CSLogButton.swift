@@ -31,7 +31,23 @@ public class CSLogButton: UIButton {
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         // button style
+        self.setBackgroundImage(UIImage(named: "button-bg"), for: .normal)
+        self.tintColor = UIColor.white
         
+        // button click event
+        self.addTarget(self, action: #selector(logging(_:)), for: .touchUpInside)
+    }
+    
+    @objc func logging(_ sender: UIButton) {
+        switch self.logType {
+        case .basic: // 단순 로그 출력
+            NSLog("button click")
+        case .title: // 로그에 버튼의 타이틀 출력
+            let btnTitle = sender.titleLabel?.text ?? "타이틀 없는"
+            NSLog("\(btnTitle) button click")
+        case .tag: // 로그에 버튼의 태그 출력
+            NSLog("\(sender.tag) button click")
+        }
     }
 
 }

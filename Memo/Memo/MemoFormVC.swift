@@ -18,7 +18,20 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     override func viewDidLoad() {
         self.contents.delegate = self
-
+        
+        // background image
+        let bgImage = UIImage(named: "memo-background")!
+        self.view.backgroundColor = UIColor(patternImage: bgImage)
+        
+        // textview
+        self.contents.layer.borderWidth = 0
+        self.contents.layer.borderColor = UIColor.clear.cgColor
+        self.contents.backgroundColor = UIColor.clear
+        // 줄간격
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 9
+        self.contents.attributedText = NSAttributedString(string: " ", attributes: [NSAttributedStringKey.paragraphStyle: style])
+        self.contents.text = ""
     }
 
     override func didReceiveMemoryWarning() {
