@@ -35,6 +35,10 @@ class RevealViewController: UIViewController {
             self.addChildViewController(vc)
             self.view.addSubview(vc.view)
             vc.didMove(toParentViewController: self)
+            
+            // 프론트 컨트롤러의 델리게이트 변수에 참조 정보 넣기
+            let frontVC = vc.viewControllers[0] as? FrontViewController
+            frontVC?.delegate = self
         }
     }
     
@@ -93,7 +97,7 @@ class RevealViewController: UIViewController {
     }
     
     // 사이드 바를 닫는다
-    func clodeSideBar(_ complete: ( () -> Void)? ) {
+    func closeSideBar(_ complete: ( () -> Void)? ) {
         // 애니메이션 옵션 정의
         let options = UIViewAnimationOptions([.curveEaseInOut, .beginFromCurrentState])
         // 애니메이션 실행
