@@ -12,7 +12,7 @@ class RevealViewController: UIViewController {
     var contentVC: UIViewController?
     var sideVC: UIViewController?
     
-    var isSideBarSHowing = false
+    var isSideBarShowing = false
     
     let SLIDE_TIME = 0.3
     let SIDEBAR_WIDTH: CGFloat = 260
@@ -72,15 +72,52 @@ class RevealViewController: UIViewController {
     func openSideBar(_ complete: ( () -> Void)? ) {
         self.getSideView()
         self.setShadowEffect(shadow: true, offset: -2)
-        // 애니메이션 옵션
+        // 애니메이션 옵션 (curveEaseInOut - 처음과 끝은 점점 느리게, 중간은 점점 빠르게 조절)
+        let options = UIViewAnimationOptions([.curveEaseInOut, .beginFromCurrentState])
         // 애니메이션 실행
-        
-        
+        UIView.animate(
+            withDuration: TimeInterval(self.SLIDE_TIME),
+            delay: TimeInterval(0),
+            options: options,
+            animations : {
+                self.contentVC?.view.frame =
+                CGRect(x: self.SIDEBAR_WIDTH, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            },
+            completion: {
+                if $0 == true {
+                    self.isSideBarShowing = true
+                    complete?()
+                }
+            }
+        )
     }
     
     // 사이드 바를 닫는다
     func clodeSideBar(_ complete: ( () -> Void)? ) {
-        
+        // 애니메이션 옵션 정의
+        let options = UIViewAnimationOptions([.curveEaseInOut, .beginFromCurrentState])
+        // 애니메이션 실행
+        UIView.animate(
+            withDuration: TimeInterval(self.SLIDE_TIME),
+            delay: TimeInterval(0),
+            options: options,
+            animations: {
+                self.contentVC?.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            },
+            completion: {
+                if $0 == true {
+                    // 사이드 바 뷰를 제거
+                    self.sideVC?.view.removeFromSuperview()
+                    self.sideVC = nil
+                    // 플래그 변경
+                    self.isSideBarShowing = false
+                    // 그림자 효과 제거
+                    self.setShadowEffect(shadow: false, offset: 0)
+                    // 인자 값으로 받은 완료 함수 실행
+                    complete?()
+                }
+            }
+        )
     }
 
    
