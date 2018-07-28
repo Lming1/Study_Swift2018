@@ -10,6 +10,9 @@ import UIKit
 
 class ListViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet var account: UITextField!
+    @IBOutlet var name: UILabel!
+    @IBOutlet var gender: UISegmentedControl!
+    @IBOutlet var married: UISwitch!
     
     var accountList = [String]()
     
@@ -47,7 +50,39 @@ class ListViewController: UITableViewController, UIPickerViewDelegate, UIPickerV
         new.action = #selector(newAccount(_:))
         
         toolBar.setItems([new, flexSpace, done], animated: true)
+        
+        let plist = UserDefaults.standard
+        self.name.text = plist.string(forKey: "name")
+        self.married.isOn = plist.bool(forKey: "married")
+        self.gender.selectedSegmentIndex = plist.integer(forKey: "gender")
+        
+        let accountList = plist.array(forKey: "accountlist") as? [String] ?? [String]()
+        self.accountList = accountList
+        
+        if let account = plist.string(forKey: "selectedAccount") {
+            self.account.text = account
+        }
+        
     }
+    
+    
+    @IBAction func changeGender(_ sender: UISegmentedControl) {
+        let value = sender.selectedSegmentIndex
+        
+        let plist = UserDefaults.standard
+        plist.set(value, forKey: "gender")
+        plist.synchronize()
+    }
+    
+    @IBAction func changeMarried(_ sender: UISwitch) {
+        let value = sender.isOn
+        
+        let plist = UserDefaults.standard
+        plist.set(value, forKey: "married")
+        plist.synchronize()
+    }
+    
+    
     
     @objc func pickerDone(_ sender: Any) {
         self.view.endEditing(true)
@@ -66,6 +101,17 @@ class ListViewController: UITableViewController, UIPickerViewDelegate, UIPickerV
             if let account = alert.textFields?[0].text {
                 self.accountList.append(account)
                 self.account.text = account
+                
+                // 컨트롤 값 초기화
+                self.name.text = ""
+                self.gender.selectedSegmentIndex = 0
+                self.married.isOn = false
+                
+                // 계정 목록 저장
+                let plist = UserDefaults.standard
+                plist.set(self.accountList, forKey: "accountlist")
+                plist.set(account, forKey: "selectedAccount")
+                plist.synchronize()
             }
         })
         self.present(alert, animated: false, completion: nil)
@@ -91,7 +137,42 @@ class ListViewController: UITableViewController, UIPickerViewDelegate, UIPickerV
         let account = self.accountList[row]
         self.account.text = account
         
+        // 사용자가 계정을 생성하면 이 계정을 선택한 것으로 간주 => 저장
+        let plist = UserDefaults.standard
+        plist.set(account, forKey: "selectedAccount")
+        plist.synchronize()
+        
 //        self.view.endEditing(true)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 1 {
+            let alert = UIAlertController(title: nil, message: "이름을 입력하세요", preferredStyle: .alert)
+            
+            alert.addTextField() {
+                $0.text = self.name.text
+            }
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { (_) in
+                let value = alert.textFields?[0].text
+                
+//                let plist = UserDefaults.standard
+//                plist.setValue(value, forKey: "name")
+//                plist.synchronize()
+                // 저장 로직
+                let customPlist = "\(self.account.text!).plist" // 읽어올 파일명
+                let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+                let path = paths[0] as NSString
+                let plist = path.strings(byAppendingPaths: [customPlist]).first!
+                let data = NSMutableDictionary(contentsOfFile: plist) ?? NSMutableDictionary()
+                data.setValue(value, forKey: "name")
+                data.write(toFile: plist, atomically: true)
+                
+                self.name.text = value
+            })
+            
+            self.present(alert, animated: false, completion: nil)
+        }
     }
 
   
