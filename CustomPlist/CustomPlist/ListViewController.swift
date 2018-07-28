@@ -61,6 +61,16 @@ class ListViewController: UITableViewController, UIPickerViewDelegate, UIPickerV
         
         if let account = plist.string(forKey: "selectedAccount") {
             self.account.text = account
+            // 커스텀 프로퍼티 리스트 불러오기
+            let customPlist = "\(account).plist"
+            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+            let path = paths[0] as NSString
+            let clist = path.strings(byAppendingPaths: [customPlist]).first!
+            let data = NSDictionary(contentsOfFile: clist)
+            
+            self.name.text = data?["name"] as? String
+            self.gender.selectedSegmentIndex = data?["gender"] as? Int ?? 0
+            self.married.isOn = data?["married"] as? Bool ?? false
         }
         
     }
@@ -69,23 +79,54 @@ class ListViewController: UITableViewController, UIPickerViewDelegate, UIPickerV
     @IBAction func changeGender(_ sender: UISegmentedControl) {
         let value = sender.selectedSegmentIndex
         
-        let plist = UserDefaults.standard
-        plist.set(value, forKey: "gender")
-        plist.synchronize()
+//        let plist = UserDefaults.standard
+//        plist.set(value, forKey: "gender")
+//        plist.synchronize()
+        let customPlist = "\(self.account.text!).plist"
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let path = paths[0] as NSString
+        let plist = path.strings(byAppendingPaths: [customPlist]).first!
+        let data = NSMutableDictionary(contentsOfFile: plist) ?? NSMutableDictionary()
+        
+        data.setValue(value, forKey: "gender")
+        data.write(toFile: plist, atomically: true)
     }
     
     @IBAction func changeMarried(_ sender: UISwitch) {
         let value = sender.isOn
         
-        let plist = UserDefaults.standard
-        plist.set(value, forKey: "married")
-        plist.synchronize()
+//        let plist = UserDefaults.standard
+//        plist.set(value, forKey: "married")
+//        plist.synchronize()
+        let customPlist = "\(self.account.text!).plist"
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let path = paths[0] as NSString
+        let plist = path.strings(byAppendingPaths: [customPlist]).first!
+        let data = NSMutableDictionary(contentsOfFile: plist) ?? NSMutableDictionary()
+        
+        data.setValue(value, forKey: "married")
+        data.write(toFile: plist, atomically: true)
+        
+        
+        print("custom plist = \(plist)")
     }
     
     
     
     @objc func pickerDone(_ sender: Any) {
         self.view.endEditing(true)
+        
+        if let _account = self.account.text {
+            let customPlist = "\(_account).plist"
+            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+            let path = paths[0] as NSString
+            let clist = path.strings(byAppendingPaths: [customPlist]).first!
+            let data = NSDictionary(contentsOfFile: clist)
+            
+            self.name.text = data?["name"] as? String
+            self.gender.selectedSegmentIndex = data?["gender"] as? Int ?? 0
+            self.married.isOn = data?["married"] as? Bool ?? false
+        }
     }
     
     @objc func newAccount(_ sender: Any) {
