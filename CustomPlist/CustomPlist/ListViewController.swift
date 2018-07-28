@@ -11,12 +11,7 @@ import UIKit
 class ListViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet var account: UITextField!
     
-    var accountList = ["raphael.lee@likelion.org",
-                       "master@jeju-mstudio.com",
-                       "abc1@test.com",
-                       "abc2@test.com",
-                       "abc3@test.com"
-                       ]
+    var accountList = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,11 +40,35 @@ class ListViewController: UITableViewController, UIPickerViewDelegate, UIPickerV
         // 가변 폭 버튼 정의
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
-        toolBar.setItems([flexSpace, done], animated: true)
+        // 신규 계정 등록
+        let new = UIBarButtonItem()
+        new.title = "New"
+        new.target = self
+        new.action = #selector(newAccount(_:))
+        
+        toolBar.setItems([new, flexSpace, done], animated: true)
     }
     
     @objc func pickerDone(_ sender: Any) {
         self.view.endEditing(true)
+    }
+    
+    @objc func newAccount(_ sender: Any) {
+        self.view.endEditing(true)
+        
+        let alert = UIAlertController(title: "새 계정을 입력해주세요", message: nil, preferredStyle: .alert)
+        
+        alert.addTextField() {
+            $0.placeholder = "ex) abc.gmail.com"
+        }
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default){ (_) in
+            if let account = alert.textFields?[0].text {
+                self.accountList.append(account)
+                self.account.text = account
+            }
+        })
+        self.present(alert, animated: false, completion: nil)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
