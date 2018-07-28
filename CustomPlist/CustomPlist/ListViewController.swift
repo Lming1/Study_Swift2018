@@ -73,6 +73,16 @@ class ListViewController: UITableViewController, UIPickerViewDelegate, UIPickerV
             self.married.isOn = data?["married"] as? Bool ?? false
         }
         
+        // 사용자 계정 값이 비어있다면 나머지 값을 설정할 수 없게 막는다.
+        if (self.account.text?.isEmpty)! {
+            self.account.placeholder = "등록된 계정이 없습니다."
+            self.gender.isEnabled = false
+            self.married.isEnabled = false
+        }
+        
+        // 계정 생성 아이템..
+        let addBtn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(newAccount(_:)))
+        self.navigationItem.rightBarButtonItems = [addBtn]
     }
     
     
@@ -153,6 +163,10 @@ class ListViewController: UITableViewController, UIPickerViewDelegate, UIPickerV
                 plist.set(self.accountList, forKey: "accountlist")
                 plist.set(account, forKey: "selectedAccount")
                 plist.synchronize()
+                
+                // 입력 항목 활성화
+                self.gender.isEnabled = true
+                self.married.isEnabled = true
             }
         })
         self.present(alert, animated: false, completion: nil)
@@ -187,7 +201,7 @@ class ListViewController: UITableViewController, UIPickerViewDelegate, UIPickerV
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 1 {
+        if indexPath.row == 1 && !(self.account.text?.isEmpty)! {
             let alert = UIAlertController(title: nil, message: "이름을 입력하세요", preferredStyle: .alert)
             
             alert.addTextField() {
