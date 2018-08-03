@@ -71,4 +71,37 @@ class UserInfoManager {
     }
     
     // 로그인 상태
+    var isLogin: Bool {
+        if self.loginid == 0 || self.account == nil {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    func login(account: String, passwd: String) -> Bool {
+        // 향후 서버 연동 코드로 대체 예정
+        if account.isEqual("raphael.lee@likelion.org") && passwd.isEqual("1234") {
+            let ud = UserDefaults.standard
+            ud.set(100, forKey: UserInfoKey.loginId)
+            ud.set(account, forKey: UserInfoKey.account)
+            ud.set("밍", forKey: UserInfoKey.name)
+            ud.synchronize()
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func logout() -> Bool {
+        let ud = UserDefaults.standard
+        ud.removeObject(forKey: UserInfoKey.loginId)
+        ud.removeObject(forKey: UserInfoKey.account)
+        ud.removeObject(forKey: UserInfoKey.name)
+        ud.removeObject(forKey: UserInfoKey.profile)
+        ud.synchronize()
+        return true
+    }
+    
+    
 }
