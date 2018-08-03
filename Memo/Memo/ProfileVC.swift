@@ -47,6 +47,8 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.view.addSubview(self.tv)
         
         self.navigationController?.navigationBar.isHidden = true
+        
+        self.drawBtn()
     }
 
     override func didReceiveMemoryWarning() {
@@ -121,6 +123,7 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 // 로그인 성공시 처리 내용
                 self.tv.reloadData() // 테이블 뷰 갱신
                 self.profileImage.image = self.uinfo.profile // 이미지 프로필 갱신
+                self.drawBtn()
             } else {
                 let msg = "로그인 실패"
                 let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
@@ -140,9 +143,37 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 // 로그아웃시 처리 내용
                 self.tv.reloadData()
                 self.profileImage.image = self.uinfo.profile
+                self.drawBtn()
             }
         })
         self.present(alert, animated: false)
+    }
+    
+    // 로그인, 로그아웃 버튼
+    func drawBtn() {
+        let v = UIView()
+        v.frame.size.width = self.view.frame.width
+        v.frame.size.height = 40
+        v.frame.origin.x = 0
+        v.frame.origin.y = self.tv.frame.origin.y + self.tv.frame.height
+        v.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1.0)
+        self.view.addSubview(v)
+        
+        let btn = UIButton(type: .system)
+        btn.frame.size.width = 100
+        btn.frame.size.height = 30
+        btn.center.x = v.frame.size.width / 2
+        btn.center.y = v.frame.size.height / 2
+        
+        // 로그인 상태일때 -> 로그아웃 버튼, 로그아웃 상태일때 -> 로그인 버튼
+        if self.uinfo.isLogin == true {
+            btn.setTitle("로그아웃", for: .normal)
+            btn.addTarget(self, action: #selector(doLogout(_:)), for: .touchUpInside)
+        } else {
+            btn.setTitle("로그인", for: .normal)
+            btn.addTarget(self, action: #selector(doLogin(_:)), for: .touchUpInside)
+        }
+        v.addSubview(btn)
     }
 
 }
