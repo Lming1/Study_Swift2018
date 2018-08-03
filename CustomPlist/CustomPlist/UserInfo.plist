@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   UserInfo.plist
-   CustomPlist
-
-   Created by 이민혁 on 2018. 7. 30..
-   Copyright (c) 2018년 이민혁. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    
-    </dict>
+<dict>
+	<key>name</key>
+	<string></string>
+	<key>gender</key>
+	<integer>0</integer>
+	<key>married</key>
+	<false/>
+</dict>
 </plist>
