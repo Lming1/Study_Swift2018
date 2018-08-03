@@ -22,6 +22,10 @@
 		180D6EBD2109E7C60068C4C4 /* profile-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 180D6EBC2109E7C60068C4C4 /* profile-bg.png */; };
 		186A657A21038527001D8CE9 /* CSLogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A657921038527001D8CE9 /* CSLogButton.swift */; };
 		1881042121148C640058BCEB /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1881042021148C640058BCEB /* UserInfoManager.swift */; };
+		188104232114C86F0058BCEB /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188104222114C86F0058BCEB /* Tutorial.storyboard */; };
+		188104252114CCD20058BCEB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188104242114CCD20058BCEB /* Utils.swift */; };
+		188104272114CD6F0058BCEB /* TutorialContentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188104262114CD6F0058BCEB /* TutorialContentsVC.swift */; };
+		1881042A2114CEB00058BCEB /* TutorialMasterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188104292114CEB00058BCEB /* TutorialMasterVC.swift */; };
 		188411D921075D7000F76EDA /* button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 188411D821075D7000F76EDA /* button-bg.png */; };
 		188411DD21075FAD00F76EDA /* warning-icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 188411DB21075FAD00F76EDA /* warning-icon-60@2x.png */; };
 		188411DF2107618500F76EDA /* memo-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 188411DE2107618500F76EDA /* memo-background@2x.png */; };
@@ -57,6 +61,10 @@
 		180D6EBC2109E7C60068C4C4 /* profile-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-bg.png"; sourceTree = "<group>"; };
 		186A657921038527001D8CE9 /* CSLogButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSLogButton.swift; sourceTree = "<group>"; };
 		1881042021148C640058BCEB /* UserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
+		188104222114C86F0058BCEB /* Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
+		188104242114CCD20058BCEB /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		188104262114CD6F0058BCEB /* TutorialContentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialContentsVC.swift; sourceTree = "<group>"; };
+		188104292114CEB00058BCEB /* TutorialMasterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialMasterVC.swift; sourceTree = "<group>"; };
 		188411D821075D7000F76EDA /* button-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-bg.png"; sourceTree = "<group>"; };
 		188411DB21075FAD00F76EDA /* warning-icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warning-icon-60@2x.png"; sourceTree = "<group>"; };
 		188411DE2107618500F76EDA /* memo-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "memo-background@2x.png"; sourceTree = "<group>"; };
@@ -87,6 +95,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		188104282114CD9E0058BCEB /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				188104262114CD6F0058BCEB /* TutorialContentsVC.swift */,
+				188104292114CEB00058BCEB /* TutorialMasterVC.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
 		1892545520CC532000B6CA1E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,12 +145,14 @@
 		18D6E35420C9903200B548EC /* Memo */ = {
 			isa = PBXGroup;
 			children = (
+				188104282114CD9E0058BCEB /* Tutorial */,
 				180D6EA42109B0D50068C4C4 /* SWRevealViewController.h */,
 				180D6EA32109B0D50068C4C4 /* SWRevealViewController.m */,
 				18D6E35520C9903200B548EC /* AppDelegate.swift */,
 				18D6E35720C9903200B548EC /* ViewController.swift */,
 				18D6E36E20C9AC7C00B548EC /* MemoListVC.swift */,
 				18D6E35920C9903200B548EC /* Main.storyboard */,
+				188104222114C86F0058BCEB /* Tutorial.storyboard */,
 				18D6E35F20C9903300B548EC /* Assets.xcassets */,
 				18D6E36120C9903300B548EC /* LaunchScreen.storyboard */,
 				18D6E36420C9903400B548EC /* Info.plist */,
@@ -147,6 +166,7 @@
 				180D6EB82109BA830068C4C4 /* SideBarVC.swift */,
 				180D6EBA2109DE5C0068C4C4 /* ProfileVC.swift */,
 				1881042021148C640058BCEB /* UserInfoManager.swift */,
+				188104242114CCD20058BCEB /* Utils.swift */,
 			);
 			path = Memo;
 			sourceTree = "<group>";
@@ -220,6 +240,7 @@
 				180D6EB72109B1110068C4C4 /* icon01.png in Resources */,
 				180D6EB12109B1110068C4C4 /* icon04.png in Resources */,
 				180D6EB52109B1110068C4C4 /* icon05.png in Resources */,
+				188104232114C86F0058BCEB /* Tutorial.storyboard in Resources */,
 				180D6EB02109B1110068C4C4 /* icon02.png in Resources */,
 				180D6EAF2109B1110068C4C4 /* account@2x.jpg in Resources */,
 				18D6E36020C9903300B548EC /* Assets.xcassets in Resources */,
@@ -240,15 +261,18 @@
 				180D6EBB2109DE5C0068C4C4 /* ProfileVC.swift in Sources */,
 				186A657A21038527001D8CE9 /* CSLogButton.swift in Sources */,
 				180D6EB92109BA830068C4C4 /* SideBarVC.swift in Sources */,
+				188104252114CCD20058BCEB /* Utils.swift in Sources */,
 				18D6E37520C9AD0E00B548EC /* MemoCell.swift in Sources */,
 				18D6E37720C9AD4A00B548EC /* MemoData.swift in Sources */,
 				18D6E35820C9903200B548EC /* ViewController.swift in Sources */,
 				18D6E37120C9AC9E00B548EC /* MemoFormVC.swift in Sources */,
 				18D6E37320C9ACB000B548EC /* MemoReadVC.swift in Sources */,
 				18D6E35E20C9903200B548EC /* Memo.xcdatamodeld in Sources */,
+				1881042A2114CEB00058BCEB /* TutorialMasterVC.swift in Sources */,
 				180D6EA52109B0D50068C4C4 /* SWRevealViewController.m in Sources */,
 				18D6E36F20C9AC7C00B548EC /* MemoListVC.swift in Sources */,
 				1881042121148C640058BCEB /* UserInfoManager.swift in Sources */,
+				188104272114CD6F0058BCEB /* TutorialContentsVC.swift in Sources */,
 				18D6E35620C9903200B548EC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

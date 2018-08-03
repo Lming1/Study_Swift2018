@@ -9,6 +9,7 @@
 import UIKit
 
 class SideBarVC: UITableViewController {
+    let uinfo = UserInfoManager()
     let titles = ["새글 작성하기",
                   "친구 새글",
                   "달력으로 보기",
@@ -34,21 +35,21 @@ class SideBarVC: UITableViewController {
         self.tableView.tableHeaderView = headerView
         
         self.nameLabel.frame = CGRect(x: 70, y: 15, width: 100, height: 30)
-        self.nameLabel.text = "Lming1"
+//        self.nameLabel.text = "Lming1"
         self.nameLabel.textColor = UIColor.white
         self.nameLabel.font = UIFont.boldSystemFont(ofSize: 15)
         self.nameLabel.backgroundColor = UIColor.clear
         headerView.addSubview(self.nameLabel)
         
         self.emailLabel.frame = CGRect(x: 70, y: 30, width: 150, height: 30)
-        self.emailLabel.text = "raphael.lee@likelion.org"
+//        self.emailLabel.text = "raphael.lee@likelion.org"
         self.emailLabel.textColor = UIColor.white
         self.emailLabel.font = UIFont.systemFont(ofSize: 11)
         self.emailLabel.backgroundColor = UIColor.clear
         headerView.addSubview(self.emailLabel)
         
-        let defaultProfile = UIImage(named: "account.jpg")
-        self.profileImage.image = defaultProfile
+//        let defaultProfile = UIImage(named: "account.jpg")
+//        self.profileImage.image = defaultProfile
         self.profileImage.frame = CGRect(x: 10, y: 10, width: 50, height: 50)
         
         // 프로필 이미지 둥글게
@@ -57,6 +58,11 @@ class SideBarVC: UITableViewController {
         self.profileImage.layer.masksToBounds = true // 마스크 효과
         view.addSubview(self.profileImage)
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.nameLabel.text = self.uinfo.name ?? "Guest"
+        self.emailLabel.text = self.uinfo.account ?? ""
+        self.profileImage.image = self.uinfo.profile
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
