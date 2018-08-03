@@ -91,4 +91,13 @@ class TutorialMasterVC: UIViewController, UIPageViewControllerDataSource {
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return 0
     }
+    
+    
+    @IBAction func close(_ sender: Any) {
+        let ud = UserDefaults.standard
+        ud.set(true, forKey: UserInfoKey.tutorial)
+        ud.synchronize()
+        self.presentingViewController?.dismiss(animated: true)
+    }
+    
 }

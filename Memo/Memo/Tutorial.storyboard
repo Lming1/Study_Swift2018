@@ -24,6 +24,9 @@
                                     <constraint firstAttribute="height" constant="30" id="UmR-8i-UGI"/>
                                 </constraints>
                                 <state key="normal" title="시작하기"/>
+                                <connections>
+                                    <action selector="close:" destination="6bq-AS-11S" eventType="touchUpInside" id="zBm-MG-775"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

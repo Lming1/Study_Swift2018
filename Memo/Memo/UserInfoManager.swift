@@ -14,6 +14,7 @@ struct UserInfoKey {
     static let account = "ACCOUNT"
     static let name = "NAME"
     static let profile = "PROFILE"
+    static let tutorial = "TUTORIAL"
 }
 
 

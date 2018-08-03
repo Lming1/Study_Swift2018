@@ -58,6 +58,12 @@ class MemoListVC: UITableViewController {
     
     // 디바이스 스크린에 view controller가 나타날 때마다 호출되는 method
     override func viewWillAppear(_ animated: Bool) {
+        let ud = UserDefaults.standard
+        if ud.bool(forKey: UserInfoKey.tutorial) == false {
+            let vc = self.instanceTutorialVC(name: "MasterVC")
+            self.present(vc!, animated: false)
+            return
+        }
         self.tableView.reloadData()
     }
     
