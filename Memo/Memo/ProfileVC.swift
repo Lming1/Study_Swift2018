@@ -11,6 +11,7 @@ import UIKit
 class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let profileImage = UIImageView()
     let tv = UITableView()
+    let uinfo = UserInfoManager() // 개인정보 관리 매니저
     
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
@@ -27,7 +28,8 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         bgImg.layer.masksToBounds = true
         self.view.addSubview(bgImg)
         // profile image
-        let image = UIImage(named: "account.jpg")
+//        let image = UIImage(named: "account.jpg")
+        let image = self.uinfo.profile
         
         self.profileImage.image = image
         self.profileImage.frame.size = CGSize(width: 100, height: 100)
@@ -79,15 +81,68 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             cell.textLabel?.text = "이름"
-            cell.detailTextLabel?.text = "Lming1"
+//            cell.detailTextLabel?.text = "Lming1"
+            cell.detailTextLabel?.text = self.uinfo.name ?? "Login please"
         case 1:
             cell.textLabel?.text = "계정"
-            cell.detailTextLabel?.text = "raphael.lee@likelion.org"
+//            cell.detailTextLabel?.text = "raphael.lee@likelion.org"
+            cell.detailTextLabel?.text = self.uinfo.account ?? "Login please"
         default:
             ()
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.uinfo.isLogin == false {
+            // 로그인 상태가 아닐 경우 로그인 창 띄우기
+            self.doLogin(self.tv)
+        }
+    }
+    
+    @objc func doLogin(_ sender: Any) {
+        let loginAlert = UIAlertController(title: "LOGIN", message: nil, preferredStyle: .alert)
+        
+        loginAlert.addTextField() { (tf) in
+            tf.placeholder = "Account"
+        }
+        loginAlert.addTextField() { (tf) in
+            tf.placeholder = "Password"
+            tf.isSecureTextEntry = true
+        }
+        
+        loginAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        loginAlert.addAction(UIAlertAction(title: "Login", style: .destructive) { (_) in
+            let account = loginAlert.textFields?[0].text ?? ""
+            let passwd = loginAlert.textFields?[1].text ?? ""
+            
+            if self.uinfo.login(account: account, passwd: passwd) {
+                // 로그인 성공시 처리 내용
+                self.tv.reloadData() // 테이블 뷰 갱신
+                self.profileImage.image = self.uinfo.profile // 이미지 프로필 갱신
+            } else {
+                let msg = "로그인 실패"
+                let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                self.present(alert, animated: false)
+            }
+        })
+        self.present(loginAlert, animated: false)
+    }
+    
+    @objc func doLogout(_ sender: Any) {
+        let msg = "로그아웃하시겠습니까?"
+        let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel))
+        alert.addAction(UIAlertAction(title: "확인", style: .destructive) { (_) in
+            if self.uinfo.logout() {
+                // 로그아웃시 처리 내용
+                self.tv.reloadData()
+                self.profileImage.image = self.uinfo.profile
+            }
+        })
+        self.present(alert, animated: false)
     }
 
 }
