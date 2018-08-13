@@ -11,18 +11,25 @@ import UIKit
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
-        var db: OpaquePointer? = nil // SQLite connect data
-        var stmt: OpaquePointer? = nil // compile sql
-        // Search SQLite DB
+        let dbPath = self.getDBPath()
+        self.dbExecute(dbPath: dbPath)
+    }
+    
+    func getDBPath() -> String {
         let fileMgr = FileManager()
         let docPathURL = fileMgr.urls(for: .documentDirectory, in: .userDomainMask).first!
         let dbPath = docPathURL.appendingPathComponent("db.sqlite").path
-
+        
         if fileMgr.fileExists(atPath: dbPath) == false {
             let dbSource = Bundle.main.path(forResource: "db", ofType: "sqlite")
             try! fileMgr.copyItem(atPath: dbSource!, toPath: dbPath)
         }
-        
+        return dbPath
+    }
+    
+    func dbExecute(dbPath: String) {
+        var db: OpaquePointer? = nil // SQLite connect data
+        var stmt: OpaquePointer? = nil // compile sql
         
         let sql = "CREATE TABLE IF NOT EXISTS sequence (num INTEGER)"
         if sqlite3_open(dbPath, &db) == SQLITE_OK {
@@ -39,7 +46,6 @@ class ViewController: UIViewController {
             print("Database Connect Fail")
             return
         }
-
     }
 
     override func didReceiveMemoryWarning() {
