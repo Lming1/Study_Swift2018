@@ -29,23 +29,37 @@ class ViewController: UIViewController {
     
     func dbExecute(dbPath: String) {
         var db: OpaquePointer? = nil // SQLite connect data
-        var stmt: OpaquePointer? = nil // compile sql
-        
-        let sql = "CREATE TABLE IF NOT EXISTS sequence (num INTEGER)"
-        if sqlite3_open(dbPath, &db) == SQLITE_OK {
-            if sqlite3_prepare(db, sql, -1, &stmt, nil) == SQLITE_OK {
-                if sqlite3_step(stmt) == SQLITE_DONE {
-                    print("Create Table Success!")
-                }
-                sqlite3_finalize(stmt)
-            } else {
-                print("Prepare Statement Fail")
-            }
-            sqlite3_close(db)
-        } else {
+        guard sqlite3_open(dbPath, &db) == SQLITE_OK else {
             print("Database Connect Fail")
             return
         }
+        
+        // Database 연결 종료
+        defer {
+            print("Close Database Connection")
+            sqlite3_close(db)
+        }
+        
+        var stmt: OpaquePointer? = nil // compile sql
+        let sql = "CREATE TABLE IF NOT EXISTS sequence (num INTEGER)"
+        guard sqlite3_prepare(db, sql, -1, &stmt, nil) == SQLITE_OK else {
+            print("Prepare Statement Fail")
+            return
+        }
+        // stmt 변수 해제
+        
+        defer {
+            print("Finalize Statement")
+            sqlite3_finalize(stmt)
+        }
+        
+        if sqlite3_step(stmt) == SQLITE_DONE {
+            print("Create Table Success!")
+        }
+        
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
