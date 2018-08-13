@@ -18,6 +18,11 @@ class ViewController: UIViewController {
         let docPathURL = fileMgr.urls(for: .documentDirectory, in: .userDomainMask).first!
         let dbPath = docPathURL.appendingPathComponent("db.sqlite").path
 
+        if fileMgr.fileExists(atPath: dbPath) == false {
+            let dbSource = Bundle.main.path(forResource: "db", ofType: "sqlite")
+            try! fileMgr.copyItem(atPath: dbSource!, toPath: dbPath)
+        }
+        
         
         let sql = "CREATE TABLE IF NOT EXISTS sequence (num INTEGER)"
         if sqlite3_open(dbPath, &db) == SQLITE_OK {
