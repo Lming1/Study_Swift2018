@@ -22,6 +22,7 @@
 		18F49800212C4F7F00716FFF /* EmployeeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F497FF212C4F7F00716FFF /* EmployeeListVC.swift */; };
 		18F49802212C51A800716FFF /* hr.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 18F49801212C51A800716FFF /* hr.sqlite */; };
 		18F49804212C51E400716FFF /* DepartmentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F49803212C51E400716FFF /* DepartmentDAO.swift */; };
+		18F49806212C69C600716FFF /* EmployeeDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F49805212C69C600716FFF /* EmployeeDAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		18F497FF212C4F7F00716FFF /* EmployeeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListVC.swift; sourceTree = "<group>"; };
 		18F49801212C51A800716FFF /* hr.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = hr.sqlite; sourceTree = "<group>"; };
 		18F49803212C51E400716FFF /* DepartmentDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentDAO.swift; sourceTree = "<group>"; };
+		18F49805212C69C600716FFF /* EmployeeDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				18F497FD212C4F6800716FFF /* DepartmentListVC.swift */,
 				18F497FF212C4F7F00716FFF /* EmployeeListVC.swift */,
 				18F49803212C51E400716FFF /* DepartmentDAO.swift */,
+				18F49805212C69C600716FFF /* EmployeeDAO.swift */,
 			);
 			path = HR;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18F497D7212C4D0A00716FFF /* ViewController.swift in Sources */,
+				18F49806212C69C600716FFF /* EmployeeDAO.swift in Sources */,
 				18F497F6212C4D3C00716FFF /* FMDatabasePool.m in Sources */,
 				18F49804212C51E400716FFF /* DepartmentDAO.swift in Sources */,
 				18F497FE212C4F6800716FFF /* DepartmentListVC.swift in Sources */,
