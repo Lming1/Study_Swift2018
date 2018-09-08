@@ -110,6 +110,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="사원목록" id="beO-1E-Ps1">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="zjQ-nz-f5t">
+                            <connections>
+                                <action selector="editing:" destination="ZOC-ZW-5Ws" id="7vS-Gy-75T"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ttg-hB-qX7">
                             <connections>
                                 <action selector="add:" destination="ZOC-ZW-5Ws" id="egf-zM-Cr2"/>

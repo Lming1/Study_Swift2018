@@ -87,5 +87,36 @@ class EmployeeListVC: UITableViewController {
         self.present(alert, animated: false)
     }
     
+    @IBAction func editing(_ sender: Any) {
+        if self.isEditing == false {
+            // 현재 편집 모드가 아닐 경우
+            self.setEditing(true, animated: true)
+            (sender as? UIBarButtonItem)?.title = "Done"
+        } else {
+            self.setEditing(false, animated: true)
+            (sender as? UIBarButtonItem)?.title = "Edit"
+        }
+    }
+    
+    // 목록 편집 형식을 결정하는 메소드(삽입 / 삭제)
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.delete
+    }
+    
+    // 목록 편집 버튼을 클릭했을 때 호출되는 메소드
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        // 삭제할 행의 empCd 추출
+        let empCd = self.empList[indexPath.row].empCd
+        // DB, DataSource, tableview에서 차례대로 삭제
+        if empDAO.remove(empCd: empCd) {
+            self.empList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            // navTitle 갱신
+            let navTitle = self.navigationItem.titleView as! UILabel
+            navTitle.text = "사원 목록 \n" + "총 \(self.empList.count) 명"
+        }
+    }
+    
     
 }
