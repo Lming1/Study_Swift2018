@@ -55,14 +55,17 @@ class EmployeeDAO {
     }
     
     // 전체 리스트
-    func find() -> [EmployeeVO] {
+    func find(departCd: Int = 0) -> [EmployeeVO] {
         var employeeList = [EmployeeVO]()
         
         do {
+            // 조건절 정의
+            let condition = departCd == 0 ? "" : "WHERE Employee.depart_cd = \(departCd)"
             let sql = """
                 SELECT emp_cd, emp_name, join_date, state_cd, department.depart_title
                 FROM employee
                 JOIN department On department.depart_cd = employee.depart_cd
+                \(condition)
                 ORDER BY employee.depart_cd ASC
                 """
             
