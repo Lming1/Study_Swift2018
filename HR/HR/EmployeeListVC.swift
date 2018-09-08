@@ -63,6 +63,26 @@ class EmployeeListVC: UITableViewController {
         alert.addAction(UIAlertAction(title: "취소", style: .cancel))
         alert.addAction(UIAlertAction(title: "확인", style: .default) {(_) in
             // 사원 등록 처리 로직
+            // 알림창의 입력 필드에서 값을 읽어온다.
+            var param = EmployeeVO()
+            param.departCd = pickervc.selectedDepartCd
+            param.empName = (alert.textFields?[0].text)!
+            // 가입일은 오늘로 지정
+            let df = DateFormatter()
+            df.dateFormat = "yyyy-MM-dd"
+            param.joinDate = df.string(from: Date())
+            // 재직 상태는 '재직중'
+            param.stateCd = EmpStateType.ING
+            // DB 처리
+            if self.empDAO.create(param: param) {
+                // 성공이면 테이블 뷰 갱신
+                self.empList = self.empDAO.find()
+                self.tableView.reloadData()
+                // 네비게이션 타이틀 갱신
+                if let navTitle = self.navigationItem.titleView as? UILabel {
+                    navTitle.text = "사원 목록 \n" + "총 \(self.empList.count) 명"
+                }
+            }
         })
         self.present(alert, animated: false)
     }
