@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182424002144072400144BB3 /* PickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182423FF2144072400144BB3 /* PickerController.swift */; };
 		18F497D5212C4D0A00716FFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F497D4212C4D0A00716FFF /* AppDelegate.swift */; };
 		18F497D7212C4D0A00716FFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F497D6212C4D0A00716FFF /* ViewController.swift */; };
 		18F497DA212C4D0A00716FFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F497D8212C4D0A00716FFF /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		182423FF2144072400144BB3 /* PickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerController.swift; sourceTree = "<group>"; };
 		18F497D1212C4D0900716FFF /* HR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F497D4212C4D0A00716FFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18F497D6212C4D0A00716FFF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				18F497FF212C4F7F00716FFF /* EmployeeListVC.swift */,
 				18F49803212C51E400716FFF /* DepartmentDAO.swift */,
 				18F49805212C69C600716FFF /* EmployeeDAO.swift */,
+				182423FF2144072400144BB3 /* PickerController.swift */,
 			);
 			path = HR;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				18F497D7212C4D0A00716FFF /* ViewController.swift in Sources */,
 				18F49806212C69C600716FFF /* EmployeeDAO.swift in Sources */,
 				18F497F6212C4D3C00716FFF /* FMDatabasePool.m in Sources */,
+				182424002144072400144BB3 /* PickerController.swift in Sources */,
 				18F49804212C51E400716FFF /* DepartmentDAO.swift in Sources */,
 				18F497FE212C4F6800716FFF /* DepartmentListVC.swift in Sources */,
 				18F497F9212C4D3C00716FFF /* FMResultSet.m in Sources */,

@@ -88,6 +88,7 @@ class DepartmentListVC: UITableViewController {
         if departDAO.remove(departCd: departCd) {
             self.departList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
             // navTitle 갱신
             let navTitle = self.navigationItem.titleView as! UILabel
             navTitle.text = "부서 목록 \n" + "총 \(self.departList.count) 개"
