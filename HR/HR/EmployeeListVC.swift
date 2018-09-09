@@ -16,14 +16,56 @@ class EmployeeListVC: UITableViewController {
     // SQLite
     var empDAO = EmployeeDAO()
     
+    // refresh
+    var loadingImg: UIImageView!
+    
+    // refresh 임계점
+    var bgCircle: UIView!
+    
     override func viewDidLoad() {
         self.empList = self.empDAO.find()
         self.initUI()
         
         //Pull To Refresh
         self.refreshControl = UIRefreshControl()
-        self.refreshControl?.attributedTitle = NSAttributedString(string: "당겨서 새로고침")
+//        self.refreshControl?.attributedTitle = NSAttributedString(string: "당겨서 새로고침")
         self.refreshControl?.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
+        
+        // loading img init & 정렬 , 새로고침 컨트롤 영역의 높이에 맞추어 항상 로딩 이미지가 수직 중앙에 위치하려면, 영역의 높이가 달라지는 순간마다
+        // 로딩 이미지의 y좌표 위치가 교정되어야함.. 이를 해결하기 위해서는 스크롤이 발생될때마다 호출되는 scrollViewDidScroll 메소드의 도움을 받아야함
+        self.loadingImg = UIImageView(image: UIImage(named: "refresh"))
+        self.loadingImg.center.x = (self.refreshControl?.frame.width)! / 2
+        
+        self.refreshControl?.tintColor = UIColor.clear
+        self.refreshControl?.addSubview(self.loadingImg)
+        
+        self.bgCircle = UIView()
+        self.bgCircle.backgroundColor = UIColor.yellow
+        self.bgCircle.center.x = (self.refreshControl?.frame.width)! / 2
+        self.refreshControl?.addSubview(self.bgCircle)
+        self.refreshControl?.bringSubview(toFront: self.loadingImg)
+        
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // 스크롤 이벤트 발생할 때 마다 처리할 내용..
+        // 주어진 인자값 중 큰 값을 반환하는 함수 max
+        let distance = max(0.0, -(self.refreshControl?.frame.origin.y)!)
+        // center.y 좌표를 당긴 거리 만큼 수정
+        self.loadingImg.center.y = distance / 2
+        
+        // 당긴 거리를 회전 각도로 반환, 로딩 이미지에 설정하기
+        let ts = CGAffineTransform(rotationAngle: CGFloat(distance / 20))
+        self.loadingImg.transform = ts
+        
+        // 배경 뷰의 중심 좌표 설정
+        self.bgCircle.center.y = distance / 2
+    }
+    
+    // 스크롤 뷰 드래그 끝났을 경우
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.bgCircle.frame.size.width = 0
+        self.bgCircle.frame.size.height = 0
     }
     
     @objc func pullToRefresh(_ sender: Any) {
@@ -31,6 +73,16 @@ class EmployeeListVC: UITableViewController {
         self.tableView.reloadData()
         
         self.refreshControl?.endRefreshing()
+        
+        // 노란 원이 로딩 이미지 중심으로 커지는 애니메이션
+        let distance = max(0.0, -(self.refreshControl?.frame.origin.y)!)
+        UIView.animate(withDuration: 0.5) {
+            self.bgCircle.frame.size.width = 80
+            self.bgCircle.frame.size.height = 80
+            self.bgCircle.center.x = (self.refreshControl?.frame.width)! / 2
+            self.bgCircle.center.y = distance / 2
+            self.bgCircle.layer.cornerRadius = (self.bgCircle?.frame.size.width)! / 2
+        }
     }
     
     // UI 초기화
