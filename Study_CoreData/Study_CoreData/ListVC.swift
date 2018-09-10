@@ -25,6 +25,47 @@ class ListVC: UITableViewController {
         return result
     }
     
+    func save(title: String, contents: String) -> Bool {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let object = NSEntityDescription.insertNewObject(forEntityName: "Board", into: context)
+        object.setValue(title, forKey: "title")
+        object.setValue(contents, forKey: "contents")
+        object.setValue(Date(), forKey: "regdate")
+        
+        do {
+            try context.save()
+            self.list.append(object)
+            return true
+        } catch {
+            context.rollback()
+            return false
+        }
+    }
+    
+    @objc func add(_ sender: Any) {
+        let alert = UIAlertController(title: "게시글 등록", message: nil, preferredStyle: .alert)
+        alert.addTextField() { $0.placeholder = "제목" }
+        alert.addTextField() { $0.placeholder = "내용" }
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Save", style: .default){ (_) in
+            guard let title = alert.textFields?.first?.text, let contents = alert.textFields?.last?.text else {
+                return
+            }
+            
+            if self.save(title: title, contents: contents) == true {
+                self.tableView.reloadData()
+            }
+        })
+        self.present(alert, animated: false)
+    }
+    
+    override func viewDidLoad() {
+        let addBtn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add(_:)))
+        self.navigationItem.rightBarButtonItem = addBtn
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.list.count
     }
