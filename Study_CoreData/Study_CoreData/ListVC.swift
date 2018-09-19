@@ -21,6 +21,8 @@ class ListVC: UITableViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Board")
+        let sort = NSSortDescriptor(key: "regdate", ascending: false)
+        fetchRequest.sortDescriptors = [sort]
         let result = try! context.fetch(fetchRequest)
         return result
     }
@@ -35,7 +37,9 @@ class ListVC: UITableViewController {
         
         do {
             try context.save()
-            self.list.append(object)
+//            self.list.append(object)
+            // 배열의 0번째에 추가되게 ..
+            self.list.insert(object, at: 0)
             return true
         } catch {
             context.rollback()
@@ -84,6 +88,7 @@ class ListVC: UITableViewController {
         
         do {
             try context.save()
+            self.list = self.fetch()
             return true
         } catch  {
             context.rollback()
@@ -141,7 +146,13 @@ class ListVC: UITableViewController {
             }
             
             if self.edit(object: object, title: title, contents: contents) == true {
-                self.tableView.reloadData()
+//                self.tableView.reloadData()
+                let cell = self.tableView.cellForRow(at: indexPath)
+                cell?.textLabel?.text = title
+                cell?.detailTextLabel?.text = contents
+                
+                let firstPath = IndexPath(item: 0, section: 0)
+                self.tableView.moveRow(at: indexPath, to: firstPath)
             }
         })
         self.present(alert, animated: false)
