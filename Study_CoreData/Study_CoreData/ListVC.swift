@@ -61,6 +61,20 @@ class ListVC: UITableViewController {
         self.present(alert, animated: false)
     }
     
+    func delete(object: NSManagedObject) -> Bool {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        context.delete(object)
+        
+        do {
+            try context.save() // 현재 context 상태 동기화
+            return true
+        } catch {
+            context.rollback()
+            return false
+        }
+    }
+    
     override func viewDidLoad() {
         let addBtn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add(_:)))
         self.navigationItem.rightBarButtonItem = addBtn
@@ -81,5 +95,19 @@ class ListVC: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let object = self.list[indexPath.row]
+        if self.delete(object: object) {
+            self.list.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+
     
 }
