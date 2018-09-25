@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MemoData {
     // 식별
@@ -19,4 +20,7 @@ class MemoData {
     var image : UIImage?
     // 작성일
     var regdate : Date?
+    
+    // 원본 MemoMO 객체 참조
+    var objectID: NSManagedObjectID?
 }
