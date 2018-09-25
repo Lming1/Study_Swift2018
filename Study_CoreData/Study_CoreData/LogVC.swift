@@ -10,7 +10,29 @@ import Foundation
 import UIKit
 
 class LogVC: UITableViewController {
+    // 게시글 정보 전발받을 변수
+    var board: BoardMO!
     
+    lazy var list: [LogMO]! = {
+       return self.board.logs?.array as! [LogMO]
+    }()
+    
+    override func viewDidLoad() {
+        self.navigationItem.title = self.board.title
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.list.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let row = self.list[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "logcell")!
+        cell.textLabel?.text = "\(row.regdate!)에 \(row.type.toLogType())되었습니다."
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 12)
+        
+        return cell
+    }
 }
 
 public enum LogType: Int16 {
