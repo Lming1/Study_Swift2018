@@ -14,6 +14,7 @@
 		184012222146C47500603EE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 184012212146C47500603EE0 /* Assets.xcassets */; };
 		184012252146C47500603EE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184012232146C47500603EE0 /* LaunchScreen.storyboard */; };
 		1840122D2146C7D200603EE0 /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840122C2146C7D200603EE0 /* ListVC.swift */; };
+		18D6D6FA215A81F3005E0A07 /* LogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D6D6F9215A81F3005E0A07 /* LogVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		184012242146C47500603EE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		184012262146C47500603EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1840122C2146C7D200603EE0 /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
+		18D6D6F9215A81F3005E0A07 /* LogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				184012262146C47500603EE0 /* Info.plist */,
 				1840121E2146C47400603EE0 /* Study_CoreData.xcdatamodeld */,
 				1840122C2146C7D200603EE0 /* ListVC.swift */,
+				18D6D6F9215A81F3005E0A07 /* LogVC.swift */,
 			);
 			path = Study_CoreData;
 			sourceTree = "<group>";
@@ -102,6 +105,7 @@
 				TargetAttributes = {
 					184012132146C47400603EE0 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -143,6 +147,7 @@
 			files = (
 				1840122D2146C7D200603EE0 /* ListVC.swift in Sources */,
 				184012202146C47400603EE0 /* Study_CoreData.xcdatamodeld in Sources */,
+				18D6D6FA215A81F3005E0A07 /* LogVC.swift in Sources */,
 				1840121A2146C47400603EE0 /* ViewController.swift in Sources */,
 				184012182146C47400603EE0 /* AppDelegate.swift in Sources */,
 			);
