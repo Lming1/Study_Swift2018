@@ -11,6 +11,7 @@ import UIKit
 class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
     
     var subject: String?
+    lazy var dao = MemoDAO()
     
     @IBOutlet var contents: UITextView!
     @IBOutlet var preview: UIImageView!
@@ -87,13 +88,20 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         data.image = self.preview.image
         data.regdate = Date()
         
+        /**
         // 3. AppDelegate 객체 읽어온 다음, memolist 배열에 MemoData 객체 추가
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.memolist.append(data)
+         **/
+        
+        // CoreData에 메모 데이터 추가
+        self.dao.insert(data)
         
         // 4. 작성폼 화면 종료, 이전 화면으로 돌아가기
         _ = self.navigationController?.popViewController(animated: true)
     }
+    
+    
     //
     @IBAction func pick(_ sender: Any) {
         let select = UIAlertController(title: "이미지를 가져올 곳을 선택해주세요", message: nil, preferredStyle: .actionSheet)

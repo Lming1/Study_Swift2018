@@ -9,6 +9,7 @@
 import UIKit
 
 class MemoListVC: UITableViewController {
+    lazy var dao = MemoDAO()
     // AppDelegate
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -64,6 +65,7 @@ class MemoListVC: UITableViewController {
             self.present(vc!, animated: false)
             return
         }
+        self.appDelegate.memolist = self.dao.fetch()
         self.tableView.reloadData()
     }
     
