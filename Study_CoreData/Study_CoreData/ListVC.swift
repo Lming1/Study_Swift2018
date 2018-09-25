@@ -35,6 +35,13 @@ class ListVC: UITableViewController {
         object.setValue(contents, forKey: "contents")
         object.setValue(Date(), forKey: "regdate")
         
+        // log 관련 객체 생성 및 값 대입
+        let logObject = NSEntityDescription.insertNewObject(forEntityName: "Log", into: context) as! LogMO
+        logObject.regdate = Date()
+        logObject.type = LogType.create.rawValue
+        // 게시글 객체의 logs 속성에 생성된 로그 객체 추가
+        (object as! BoardMO).addToLogs(logObject)
+        
         do {
             try context.save()
 //            self.list.append(object)
@@ -70,6 +77,8 @@ class ListVC: UITableViewController {
         let context = appDelegate.persistentContainer.viewContext
         context.delete(object)
         
+        
+        
         do {
             try context.save() // 현재 context 상태 동기화
             return true
@@ -85,6 +94,12 @@ class ListVC: UITableViewController {
         object.setValue(title, forKey: "title")
         object.setValue(contents, forKey: "contents")
         object.setValue(Date(), forKey: "regdate")
+        
+        let logObject = NSEntityDescription.insertNewObject(forEntityName: "Log", into: context) as! LogMO
+        logObject.regdate = Date()
+        logObject.type = LogType.edit.rawValue
+        (object as! BoardMO).addToLogs(logObject)
+        
         
         do {
             try context.save()
