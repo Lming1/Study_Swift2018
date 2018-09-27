@@ -8,12 +8,18 @@
 
 import UIKit
 
-class MemoListVC: UITableViewController {
+class MemoListVC: UITableViewController, UISearchBarDelegate {
+    
+    @IBOutlet var searchBar: UISearchBar!
+    
     lazy var dao = MemoDAO()
     // AppDelegate
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
+        // search bar 키보드에서 리턴키 항상 활성화
+        searchBar.enablesReturnKeyAutomatically = false
+        
         if let revealVC = self.revealViewController() {
             let btn = UIBarButtonItem()
             btn.image = UIImage(named: "sidemenu.png")
@@ -112,6 +118,16 @@ extension MemoListVC {
             let readVC = segue.destination as? MemoReadVC
             readVC?.param = row
         }
+    }
+    
+    
+    // Search bar
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let keyword = searchBar.text
+        
+        self.appDelegate.memolist = self.dao.fetch(keyword: keyword)
+        self.tableView.reloadData()
     }
 }
 
